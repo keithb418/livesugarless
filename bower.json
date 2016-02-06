@@ -1,0 +1,9 @@
+{
+    "name": "TakeChargeHealth.com",
+    "dependencies": {
+        "jquery": "~2.2.0",
+        "angular": "~1.5.0",
+        "angular-bootstrap": "~0.13.1",
+        "requirejs": "~2.1.22"
+    }
+}
