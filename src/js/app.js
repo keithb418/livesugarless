@@ -1,10 +1,15 @@
 define([
     'jquery',
     'angular',
-    'angularBootstrap',
+    'angularRoute',
+    'angularBootstrap'
 ],
-function ($, angular) {
-    let app = angular.module('takeChargeHealth');
+($, angular) => {
+    let app = angular.module('takeChargeHealth', ['ngRoute', 'ui.bootstrap']);
+    
+    app.controller('controller', ['$scope', ($scope) => {
+        $scope.message = 'Welcome to TakeChargeHealth.com!!';
+    }]);
     
     return app;
 });
