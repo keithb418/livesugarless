@@ -3,7 +3,9 @@ requirejs.config({
         jquery: '../lib/jquery/dist/jquery.min',
         angular: '../lib/angular/angular',
         angularRoute: '../lib/angular-route/angular-route.min',
-        angularBootstrap: '../lib/angular-bootstrap/ui-bootstrap.min'
+        angularBootstrap: '../lib/angular-bootstrap/ui-bootstrap.min',
+        text: '../lib/requirejs-text/text',
+        html: '../html'
     },
     shim: {
         angular: {

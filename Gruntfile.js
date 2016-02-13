@@ -49,7 +49,8 @@ module.exports = function (grunt) {
                         "html/**/*",
                         "assets/**/*",
                         "lib/**/*",
-                        "index.html"
+                        "index.html",
+                        ".htaccess"
                     ],
                     dest: "build"
                 }]

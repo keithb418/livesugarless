@@ -2,14 +2,23 @@ define([
     'jquery',
     'angular',
     'angularRoute',
-    'angularBootstrap'
+    'angularBootstrap',
+    'common/header',
+    'common/footer',
+    'pages/about',
+    'pages/home',
 ],
 ($, angular) => {
-    let app = angular.module('takeChargeHealth', ['ngRoute', 'ui.bootstrap']);
-    
-    app.controller('controller', ['$scope', ($scope) => {
-        $scope.message = 'Welcome to TakeChargeHealth.com!!';
-    }]);
-    
-    return app;
+    angular.module('takeChargeHealth', 
+        [
+            'ngRoute', 
+            'ui.bootstrap',
+            'header',
+            'footer',
+            'home',
+            'about',
+        ])
+        .config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
+            $routeProvider.otherwise({redirectTo: '/'});
+        }]);
 });
