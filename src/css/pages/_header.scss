@@ -1,0 +1,199 @@
+$menu-width: calc(100% - 40px);
+
+header {
+    background-color: $primary;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    .menu-btn {
+        border: 3px solid #fff;
+        font-size: 21px;
+        font-weight: normal;
+        height: 40px;
+        left: 10px;
+        padding: 0;
+        position: absolute;
+        overflow: hidden;
+        top: 10px;
+        width: 40px;
+        
+        span {
+            height: 34px;
+            padding-top: calc(50% - 10px);
+            width: 34px;
+        }
+        
+        &:active {
+            border: 3px solid #fff;
+        }
+        
+        &.open {
+            background-color: $secondary;
+            
+            &:hover {
+                background-color: $highlight;
+                color: $primary;
+            }
+            
+            &:focus {
+                background-color: $secondary;
+                color: #fff;
+            }
+        }
+    }
+    
+    h1 {
+        @include flex;
+        
+        align-items: center;
+        font-size: 25px;
+        font-weight: bold;
+        height: 60px;
+        margin: 0;
+        padding: 10px 10px 10px 60px;
+        
+        .tch-logo {
+            $top-radius: 20px;
+            $side-radius: 15px;
+            
+            display: inline-block;
+            font-size: 40px;
+            height: 40px;
+            margin-right: 10px;
+            position: relative;
+            vertical-align: top;
+            width: 40px;
+            
+            &:before {
+                @include border-radius(#{$top-radius} / #{$side-radius});
+                
+                background-color: $highlight;
+                content: " ";
+                display: block;
+                height: 30px;
+                position: absolute;
+                top: 5px;
+                width: 40px;
+            }
+            
+            &:after {
+                color: $secondary;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+    
+    .menu {
+        @include translate(0, 0);
+        @include transition(left 0.25s);
+        
+        background-color: $grey;
+        color: #fff;
+        font-weight: bold;
+        left: calc(40px - 100%);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-top: 42px;
+        position: absolute;
+        top: 60px;
+        width: calc(100% - 40px);
+        
+        &.open {
+            left: 0;
+        }
+        
+        h2 {
+            background-color: $dark-grey;
+            font-size: 20px;
+            margin: 0;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                margin: 0;
+                padding: 0 10px;
+            }
+            
+            a, button {
+                @include border-radius(0);
+                
+                background-color: transparent;
+                border: 0 none;
+                border-bottom: 3px solid #fff;
+                display: block;
+                font-size: 18px;
+                padding: 10px;
+                position: relative;
+                text-align: left;
+                width: 100%;
+                
+                &:hover {
+                    background-color: $secondary;
+                    color: #fff;
+                }
+                
+                &:active {
+                    border: 0 none;
+                    border-bottom: 3px solid #fff;
+                }
+            }
+            
+            .section {
+                border-bottom: 3px solid #fff;
+                padding-left: 20px;
+                
+                a:last-child {
+                    border-bottom: 0 none;
+                }
+            }
+            
+            .menu-icon {
+                @include border-radius(15px);
+                @include box-sizing(border-box);
+                @include transition(transform 0.15s);
+                @include rotate(-360deg);
+                
+                border: 0 none;
+                display: inline-block;
+                font-size: 30px;
+                font-weight: normal;
+                height: 30px;
+                padding: 0;
+                position: absolute;
+                right: 10px;
+                text-align: center;
+                top: calc(50% - 15px);
+                width: 30px;
+                
+                &.fa-info {
+                    border: 2px solid #fff;
+                    font-size: 20px;
+                    padding: 4px;
+                }
+                
+                &.arrow-up {
+                    @include rotate(-180deg);
+                }
+            }
+        }
+        
+        .contact-me {
+            margin: 20px 0 0 10px;
+        }
+        
+        .contact {
+            padding: 10px;
+        }
+    }
+}

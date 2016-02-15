@@ -1,0 +1,32 @@
+footer {
+    .contact, .other-contact {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .contact {
+        padding-right: 10px;
+    }
+    
+    .other-contact {
+        text-align: right;
+        width: calc(100% - 185px);
+        
+        .social-media {
+            margin-top: 10px;
+            
+            a {
+                display: inline-block;
+                height: 30px;
+                margin-right: 5px;
+                overflow: hidden;
+                width: 30px;
+                
+                span {
+                    font-size: 30px;
+                    margin: 0 10px 10px 0;
+                }
+            }
+        }
+    }
+}

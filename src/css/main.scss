@@ -1,8 +1,19 @@
 $icon-font-path: "../assets/fonts/bootstrap/";
+$fa-font-path: "../assets/fonts/font-awesome";
 
 @import "bootstrap";
 @import "bootstrap-compass";
 @import "bootstrap-mincer";
 @import "bootstrap-sprockets";
 
-@import "tch-font.scss";
+@import "font-awesome/font-awesome.scss";
+@import "tch-font";
+
+@import "common/variables";
+@import "common/mixins";
+@import "common/common";
+
+@import "pages/header";
+@import "pages/footer";
+
+@import "common/media-queries";

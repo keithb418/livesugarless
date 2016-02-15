@@ -1,3 +1,45 @@
-a header
-<a href="#/">Home</a>
-<a href="#/about">About Me</a>
+<a href="#/" title="Go to the Home Page">
+    <h1>
+        <span class="tch-logo" aria-hidden="true"></span>
+        <span class="tch-text">Take Charge Health<span>
+    </h1>
+</a>
+<button id="menu-btn" class="menu-btn" ng-class="{open: menuOpen}" ng-click="menuOpen = !menuOpen" title="Open Menu">
+    <span class="fa fa-bars" aria-hidden="true"></span>
+    Menu
+</button>
+<div id="menu" class="menu" ng-class="{open: menuOpen}">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="#/">Home<span class="menu-icon fa fa-home"></span></a></li>
+        <li><a href="#/">Blog</a></li>
+        <li ng-controller="collapseCtrl">
+            <button ng-click="isCollapsed = !isCollapsed">
+                Services
+                <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
+            </button>
+            <div uib-collapse="isCollapsed" class="section">
+                <a href="#/">Free Consultation</a>
+                <a href="#/">6-Month Program</a>
+            </div>
+        </li>
+        <li ng-controller="collapseCtrl">
+            <button ng-click="isCollapsed = !isCollapsed">
+                Forms
+                <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
+            </button>
+            <div uib-collapse="isCollapsed" class="section">
+                <a href="#/">Men's Health History</a>
+                <a href="#/">Women's Health History</a>
+            </div>
+        </li>
+        <li><a href="#/about">About Me<span class="menu-icon fa fa-info"></span></a></li>
+    </ul>
+    <button class="contact-me">Contact Me</button>
+    <div class="contact">
+        <p>Teri Brown</p>
+        <p>Health Coach</p>
+        <p><a href="tel:6032038899">(603)-203-8899</a></p>
+        <p><a href="mailto:teribrown1015@gmail.com">teribrown1015@gmail.com</a></p>
+    </div>
+</div>
