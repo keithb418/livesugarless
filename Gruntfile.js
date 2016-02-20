@@ -46,14 +46,17 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: "src",
                     src: [
-                        "html/**/*",
-                        "assets/**/*",
-                        "lib/**/*",
-                        "index.html",
-                        ".htaccess"
+                        "**/*",
+                        "!css/**/*",
+                        "!js/**/*"
                     ],
                     dest: "build"
                 }]
+            }
+        },
+        clean: {
+            build: {
+                src: ['build']
             }
         },
         shell: {
@@ -96,6 +99,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-shell');
@@ -104,6 +108,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['jshint', 'qunit']);
     
     grunt.registerTask('copyToTomcat', ['shell:delete', 'shell:copy']);
-    grunt.registerTask('deploy', ['copy', 'sass', 'babel', 'copyToTomcat']);
+    grunt.registerTask('deploy', ['clean:build', 'copy', 'sass', 'babel', 'copyToTomcat']);
 
 };

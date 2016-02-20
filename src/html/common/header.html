@@ -1,4 +1,4 @@
-<a href="#/" title="Go to the Home Page">
+<a href="#/" title="Go to the Home Page" ng-click="closeMenu()">
     <h1>
         <span class="tch-logo" aria-hidden="true"></span>
         <span class="tch-text">Take Charge Health<span>
@@ -8,38 +8,36 @@
     <span class="fa fa-bars" aria-hidden="true"></span>
     Menu
 </button>
-<div id="menu" class="menu" ng-class="{open: menuOpen}">
+<div class="close-menu" resize ng-class="{open: menuOpen}" ng-click="closeMenu()" ng-style="updateHeight(60)"></div>
+<div id="menu" class="menu" resize ng-class="{open: menuOpen}" ng-style="updateHeight(60)">
     <h2>Menu</h2>
     <ul>
-        <li><a href="#/">Home<span class="menu-icon fa fa-home"></span></a></li>
-        <li><a href="#/">Blog</a></li>
-        <li ng-controller="collapseCtrl">
-            <button ng-click="isCollapsed = !isCollapsed">
-                Services
-                <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
-            </button>
-            <div uib-collapse="isCollapsed" class="section">
-                <a href="#/">Free Consultation</a>
-                <a href="#/">6-Month Program</a>
+        <li ng-controller="collapseCtrl" ng-repeat="item in items" ng-switch on="item.submenu">
+            <div ng-switch-default>
+                <a href="{{item.route}}">
+                    {{item.name}}
+                    <span ng-if="item.icon" class="menu-icon fa {{item.icon}}"></span>
+                </a>
+            </div>
+            <div ng-switch-when="true">
+                <button ng-click="isCollapsed = !isCollapsed">
+                    {{item.name}}
+                    <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
+                </button>
+                <div uib-collapse="isCollapsed" class="section">
+                    <a ng-repeat="subitem in item.items" href="{{subitem.route}}" ng-click="closeMenu()">
+                        {{subitem.name}}
+                        <span ng-if="subitem.icon" class="menu-icon fa {{subitem.icon}}"></span>
+                    </a>
+                </div>
             </div>
         </li>
-        <li ng-controller="collapseCtrl">
-            <button ng-click="isCollapsed = !isCollapsed">
-                Forms
-                <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
-            </button>
-            <div uib-collapse="isCollapsed" class="section">
-                <a href="#/">Men's Health History</a>
-                <a href="#/">Women's Health History</a>
-            </div>
-        </li>
-        <li><a href="#/about">About Me<span class="menu-icon fa fa-info"></span></a></li>
     </ul>
     <button class="contact-me">Contact Me</button>
     <div class="contact">
         <p>Teri Brown</p>
         <p>Health Coach</p>
-        <p><a href="tel:6032038899">(603)-203-8899</a></p>
-        <p><a href="mailto:teribrown1015@gmail.com">teribrown1015@gmail.com</a></p>
+        <p><a href="tel:6032038899" ng-click="closeMenu()">(603)-203-8899</a></p>
+        <p><a href="mailto:teribrown1015@gmail.com" ng-click="closeMenu()">teribrown1015@gmail.com</a></p>
     </div>
 </div>

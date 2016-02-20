@@ -22,14 +22,9 @@ button {
     min-width: 40px;
     padding: 10px;
     
-    &:hover {
-        background-color: $highlight;
-        color: $primary;
-    }
-    
     &:focus {
-        background-color: $primary;
-        color: #fff;
+        background-color: inherit;
+        color: inherit;
     }
     
     &:active {
@@ -40,6 +35,11 @@ button {
         &:hover {
             border: 3px solid $secondary;
         }
+    }
+    
+    &:hover {
+        background-color: $highlight;
+        color: $primary;
     }
 }
 
@@ -61,11 +61,7 @@ a {
     color: inherit;
     text-decoration: none;
     
-    &:visited {
-        color: inherit;
-    }
-    
-    &:hover {
+    &:visited, &:focus, &:hover {
         color: inherit;
         text-decoration: none;
     }

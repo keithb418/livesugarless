@@ -2,6 +2,7 @@ define((require) => {
     require('jquery');
     let angular = require('angular');
     let template = require('text!html/common/header.html');
+    let navData = require('text!data/nav.json');
     
     angular.module('header', [])
         .directive('headerView', () => {
@@ -11,24 +12,43 @@ define((require) => {
                 controller: 'headerCtrl'
             }
         })
+        .directive('resize', ($window) => {
+            return ($scope, $el, attr) => {
+                let w = angular.element($window);
+                
+                $scope.$watch(() => {
+                    return {
+                        'height': w.outerHeight()
+                    };
+                }, (newValue, oldValue) => {
+                    $scope.updateHeight = (offset) => {
+                        return {
+                            height: `${newValue.height - offset}px`
+                        };
+                    }
+                }, true);
+                
+                w.bind('resize', () => {
+                    $scope.$apply();
+                });
+            };    
+        })
         .controller('collapseCtrl', ($scope) => {
             $scope.isCollapsed = true;
         })
         .controller('headerCtrl', ($scope) => {
-            $scope.menuOpen = false;
+            try {
+                navData = JSON.parse(navData);
+                
+                $scope.items = navData.items || [];
+            } catch (e) {
+                $scope.items = [];
+            }
             
-            let resizeMenu = () => {
-                let $menu = $('#menu');
-                
-                $(window).resize(() => {
-                    let height = $(window).outerHeight() - 60;
-                    
-                    $menu.outerHeight(`${height}px`);
-                });
-                
-                $(window).resize();
+            $scope.closeMenu = () => {
+                $scope.menuOpen = false;
             };
             
-            resizeMenu();
+            $scope.closeMenu();
         });
 });

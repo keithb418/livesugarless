@@ -1,7 +1,6 @@
 $menu-width: calc(100% - 40px);
 
 header {
-    background-color: $primary;
     color: #fff;
     position: fixed;
     top: 0;
@@ -25,22 +24,16 @@ header {
             width: 34px;
         }
         
-        &:active {
-            border: 3px solid #fff;
-        }
-        
         &.open {
             background-color: $secondary;
             
             &:hover {
                 background-color: $highlight;
-                color: $primary;
             }
-            
-            &:focus {
-                background-color: $secondary;
-                color: #fff;
-            }
+        }
+        
+        &:active {
+            border: 3px solid #fff;
         }
     }
     
@@ -48,11 +41,13 @@ header {
         @include flex;
         
         align-items: center;
+        background-color: $primary;
         font-size: 25px;
         font-weight: bold;
         height: 60px;
         margin: 0;
         padding: 10px 10px 10px 60px;
+        z-index: 10;
         
         .tch-logo {
             $top-radius: 20px;
@@ -86,9 +81,20 @@ header {
         }
     }
     
+    .close-menu {
+        display: none;
+        width: 100%;
+        z-index: 1;
+        
+        &.open {
+            display: block;
+        }
+    }
+    
     .menu {
+        @include box-sizing(border-box);
         @include translate(0, 0);
-        @include transition(left 0.25s);
+        @include transition(left 0.5s);
         
         background-color: $grey;
         color: #fff;
@@ -96,10 +102,10 @@ header {
         left: calc(40px - 100%);
         overflow-x: hidden;
         overflow-y: auto;
-        padding-top: 42px;
         position: absolute;
         top: 60px;
-        width: calc(100% - 40px);
+        width: 320px;
+        z-index: 5;
         
         &.open {
             left: 0;
@@ -110,8 +116,6 @@ header {
             font-size: 20px;
             margin: 0;
             padding: 10px;
-            position: fixed;
-            top: 0;
             width: 100%;
         }
         
@@ -150,7 +154,10 @@ header {
             }
             
             .section {
+                @include box-sizing(border-box);
+                
                 border-bottom: 3px solid #fff;
+                overflow: hidden;
                 padding-left: 20px;
                 
                 a:last-child {
@@ -161,7 +168,7 @@ header {
             .menu-icon {
                 @include border-radius(15px);
                 @include box-sizing(border-box);
-                @include transition(transform 0.15s);
+                @include transition(transform 0.5s);
                 @include rotate(-360deg);
                 
                 border: 0 none;

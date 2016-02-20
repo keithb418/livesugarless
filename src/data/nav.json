@@ -1,0 +1,46 @@
+{
+    "items": [
+        {
+            "name": "Home",
+            "route": "/#",
+            "icon": "fa-home"
+        },
+        {
+            "name": "Blog",
+            "route": "/#"
+        },
+        {
+            "name": "Services",
+            "submenu": "true",
+            "items": [
+                {
+                    "name": "Free Consultation",
+                    "route": "/#"
+                },
+                {
+                    "name": "6 Month Program",
+                    "route": "/#"
+                }
+            ]
+        },
+        {
+            "name": "Forms",
+            "submenu": "true",
+            "items": [
+                {
+                    "name": "Men's Health History",
+                    "route": "/#"
+                },
+                {
+                    "name": "Women's Health History",
+                    "route": "/#"
+                }
+            ]
+        },
+        {
+            "name": "About Me",
+            "route": "/#about",
+            "icon": "fa-info"
+        }
+    ]
+}

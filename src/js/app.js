@@ -1,6 +1,7 @@
 define([
     'jquery',
     'angular',
+    'angularAnimate',
     'angularRoute',
     'angularBootstrap',
     'common/header',
@@ -11,7 +12,8 @@ define([
 ($, angular) => {
     angular.module('takeChargeHealth', 
         [
-            'ngRoute', 
+            'ngRoute',
+            'ngAnimate', 
             'ui.bootstrap',
             'header',
             'footer',
