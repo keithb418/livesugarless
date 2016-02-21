@@ -2,12 +2,12 @@
     "items": [
         {
             "name": "Home",
-            "route": "/#",
+            "route": "#",
             "icon": "fa-home"
         },
         {
             "name": "Blog",
-            "route": "/#"
+            "route": "#/blog"
         },
         {
             "name": "Services",
@@ -15,11 +15,11 @@
             "items": [
                 {
                     "name": "Free Consultation",
-                    "route": "/#"
+                    "route": "#"
                 },
                 {
                     "name": "6 Month Program",
-                    "route": "/#"
+                    "route": "#"
                 }
             ]
         },
@@ -29,17 +29,17 @@
             "items": [
                 {
                     "name": "Men's Health History",
-                    "route": "/#"
+                    "route": "#"
                 },
                 {
                     "name": "Women's Health History",
-                    "route": "/#"
+                    "route": "#"
                 }
             ]
         },
         {
             "name": "About Me",
-            "route": "/#about",
+            "route": "#/about",
             "icon": "fa-info"
         }
     ]

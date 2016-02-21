@@ -7,6 +7,7 @@ define([
     'common/header',
     'common/footer',
     'pages/about',
+    'pages/blog',
     'pages/home',
 ],
 ($, angular) => {
@@ -18,6 +19,7 @@ define([
             'header',
             'footer',
             'home',
+            'blog',
             'about',
         ])
         .config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
