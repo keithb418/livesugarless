@@ -1,0 +1,32 @@
+{
+    "kind": "blogger#postList",
+    "items": [
+        {
+            "kind": "blogger#post",
+            "id": "2001137119792656695",
+            "blog": {
+                "id": "6505439823281115311"
+            },
+            "published": "2016-02-20T14:38:00-08:00",
+            "updated": "2016-02-23T16:11:54-08:00",
+            "etag": "\"GtyIIQmNmmUjEA0nwhSqMElCJ1g/dGltZXN0YW1wOiAxNDU2MjcyNzE0NTcyCm9mZnNldDogLTI4ODAwMDAwCg\"",
+            "url": "http://take-charge-health.blogspot.com/2016/02/my-first-post.html",
+            "selfLink": "https://www.googleapis.com/blogger/v3/blogs/6505439823281115311/posts/2001137119792656695",
+            "title": "My First Post",
+            "content": "Here is a new post, just trying to get the hang of this.<br />\n<div class=\"separator\" style=\"clear: both; text-align: center;\">\n<a href=\"https://1.bp.blogspot.com/-PmVnXPNf0Vc/Vsz1RBkbZTI/AAAAAAAAAAg/DTVyy7AhmdU/s1600/chrispic.jpg\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\"><img border=\"0\" height=\"240\" src=\"https://1.bp.blogspot.com/-PmVnXPNf0Vc/Vsz1RBkbZTI/AAAAAAAAAAg/DTVyy7AhmdU/s320/chrispic.jpg\" width=\"320\" /></a></div>\n<br />",
+            "author": {
+                "id": "g112025939225963567311",
+                "displayName": "Teri Brown",
+                "url": "https://www.blogger.com/profile/15247592510342073185",
+                "image": {
+                    "url": "//img2.blogblog.com/img/b16-rounded.gif"
+                }
+            },
+            "replies": {
+                "totalItems": "0",
+                "selfLink": "https://www.googleapis.com/blogger/v3/blogs/6505439823281115311/posts/2001137119792656695/comments"
+            }
+        }
+    ],
+    "etag": "\"GtyIIQmNmmUjEA0nwhSqMElCJ1g/MjAxNi0wMi0yNFQwMDoxMTo1NC41NzJa\""
+}

@@ -52,6 +52,15 @@ module.exports = function (grunt) {
                     ],
                     dest: "build"
                 }]
+            },
+            apiKey: {
+                files: [{
+                    expand: true,
+                    src: [
+                        "api_key.json"
+                    ],
+                    dest: "build/data"
+                }]
             }
         },
         clean: {
@@ -108,6 +117,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['jshint', 'qunit']);
     
     grunt.registerTask('copyToTomcat', ['shell:delete', 'shell:copy']);
-    grunt.registerTask('deploy', ['clean:build', 'copy', 'sass', 'babel', 'copyToTomcat']);
+    grunt.registerTask('deploy', ['clean:build', 'copy', 'copy:apiKey', 'sass', 'babel', 'copyToTomcat']);
 
 };

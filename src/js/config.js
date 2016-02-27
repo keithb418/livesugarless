@@ -5,24 +5,29 @@ requirejs.config({
         angularAnimate: '../lib/angular-animate/angular-animate',
         angularRoute: '../lib/angular-route/angular-route.min',
         angularBootstrap: '../lib/angular-bootstrap/ui-bootstrap.min',
+        angularResource: '../lib/angular-resource/angular-resource.min',
         text: '../lib/requirejs-text/text',
         html: '../html',
-        data: '../data'
+        data: '../data',
+        services: 'services'
     },
     shim: {
+        jquery: {
+            exports: '$'
+        },
         angular: {
             exports: 'angular'
         },
         angularRoute: {
             deps: ['angular']
         },
-        jquery: {
-            exports: '$'
-        },
         angularBootstrap: {
             deps: ['angular']
         },
         angularAnimate: {
+            deps: ['angular']
+        },
+        angularResource: {
             deps: ['angular']
         }
     }

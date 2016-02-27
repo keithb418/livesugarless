@@ -4,6 +4,7 @@ define([
     'angularAnimate',
     'angularRoute',
     'angularBootstrap',
+    'angularResource',
     'common/header',
     'common/footer',
     'pages/about',
@@ -14,7 +15,8 @@ define([
     angular.module('takeChargeHealth', 
         [
             'ngRoute',
-            'ngAnimate', 
+            'ngAnimate',
+            'ngResource',
             'ui.bootstrap',
             'header',
             'footer',
