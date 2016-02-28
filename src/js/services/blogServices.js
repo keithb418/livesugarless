@@ -1,55 +1,65 @@
 define((require) => {
-    require('jquery');
+    let moment = require('moment');
     let angular = require('angular');
-    let angularResource = require('angularResource');
     let apiKeyJSON = require('text!data/api_key.json');
     let apiData = JSON.parse(apiKeyJSON);
     
     angular.module('blogServices', [])
-        .factory('PostsService', ($resource) => {
-            return $resource('data/blogposts.json');
-        })
-        .factory('CommentsService', ($resource) => {
-            return $resource('data/blogcomments.json');
-        })
-        .factory('blogResources', ['$q', 'PostsService', 'CommentsService', ($q, PostsService, CommentsService) => {
+        .factory('blogResources', ['$q', '$http', ($q, $http, PostsService, CommentsService) => {
             class BlogResources {
-                query (resource, data) {
-                    let deferred = $q.defer();
-                    
-                    resource.query(data).$promise.then((result) => {
-                        deferred.resolve(result);
-                    }, (error) => {
-                        deferred.reject(error);
+                sortCommentsInPosts (posts) {
+                    posts.forEach((post) => {
+                        post.comments.sort((a, b) => {
+                            let aDate = moment(a.published);
+                            let bDate = moment(b.published);
+                            
+                            if (aDate > bDate) {
+                                return -1;
+                            }
+                            
+                            if (bDate > aDate) {
+                                return 1;
+                            }
+                            
+                            return 0;
+                        });
                     });
                     
-                    return deferred.promise;
+                    return posts;
+                }
+                matchCommentsAndPosts (posts, comments) {
+                    let postsMap = new Map();
+                    
+                    posts.forEach((post) => {
+                        postsMap.set(post.id, post);
+                    });
+                    
+                    comments.forEach((comment) => {
+                        let id = comment.post.id;
+                        let post = postsMap.get(id);
+                        
+                        post.comments = post.comments || [];
+                        
+                        post.comments.push(comment);
+                        
+                        postsMap.set(id, post);
+                    });
+                    
+                    return this.sortCommentsInPosts(Array.from(postsMap.values()));
                 }
                 getPosts () {
                     let deferred = $q.defer();
                     
                     $q.all([
-                        this.query(PostsService, {key: apiData.key, blogId: apiData.blogId}),
-                        this.query(CommentsService, {key: apiData.key, blogId: apiData.blogId})
-                    ], ([postsResponse, commentsResponse]) => {
-                        let posts = postsResponse && postsResponse.items ? postsResponse.items : [];
-                        let comments = commentsResponse && commentsResponse.items ? commentsResponse.items : [];
+                        $http.get(`data/blogposts.json?key=${apiData.key}&blogId=${apiData.blogId}`),
+                        $http.get(`data/blogcomments.json?key=${apiData.key}&blogId=${apiData.blogId}`)
+                    ]).then(([postsResponse, commentsResponse]) => {
+                        let postsData = postsResponse ? postsResponse.data : {};
+                        let commentsData = commentsResponse ? commentsResponse.data : {};
+                        let posts = postsData.items || [];
+                        let comments = commentsData.items || [];
                         
-                        comments.forEach((comment) => {
-                            let post = $.grep(posts, (currPost) => {
-                                return currPost.id = comment.post.id;
-                            });
-                            
-                            post.comments = post.comments || [];
-                            
-                            post.comments.push(comment);
-                        });
-                        
-                        console.log(posts);
-                        
-                        deferred.resolve(posts);
-                    }, (error) => {
-                        deferred.reject(error);
+                        deferred.resolve(this.matchCommentsAndPosts(posts, comments));
                     });
                     
                     return deferred.promise;

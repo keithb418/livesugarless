@@ -1,6 +1,7 @@
 requirejs.config({
     paths: {
         jquery: '../lib/jquery/dist/jquery.min',
+        moment: '../lib/moment/moment',
         angular: '../lib/angular/angular',
         angularAnimate: '../lib/angular-animate/angular-animate',
         angularRoute: '../lib/angular-route/angular-route.min',

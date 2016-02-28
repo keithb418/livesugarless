@@ -14,7 +14,7 @@
     <ul>
         <li ng-controller="collapseCtrl" ng-repeat="item in items" ng-switch on="item.submenu">
             <div ng-switch-default>
-                <a href="{{item.route}}">
+                <a href="{{item.route}}" ng-click="closeMenu()">
                     {{item.name}}
                     <span ng-if="item.icon" class="menu-icon fa {{item.icon}}"></span>
                 </a>

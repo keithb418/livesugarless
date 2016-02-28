@@ -1,7 +1,7 @@
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
-    -mz-border-radius: $radius;
+    -ms-border-radius: $radius;
     border-radius: $radius;
 }
 
@@ -11,4 +11,9 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+}
+
+@mixin align-items($align) {
+    -webkit-align-items: $align;
+    align-items: $align;
 }

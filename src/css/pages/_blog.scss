@@ -1,3 +1,48 @@
-iframe {
-    width: 100%;
+.blog-post {
+    @include border-radius(10px);
+    
+    border: 1px solid $primary;
+    margin-bottom: 20px;
+    overflow: hidden;
+    
+    .post-title {
+        background-color: $primary;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+        padding: 10px;
+    }
+    
+    .post-content {
+        padding: 10px;
+    }
+    
+    .post-author, .comment-author {
+        font-size: 13px;
+        font-style: italic;
+        padding: 10px;
+    }
+    
+    .post-comments {
+        border-top: 1px solid $primary;
+        padding: 10px;
+    }
+    
+    .comment {
+        border-bottom: 1px solid $grey;
+        padding: 10px;
+        
+        &:last-child {
+            border: 0 none;
+        }
+    }
+    
+    .comment-author {
+        padding: 0;
+    }
+    
+    .comment-content {
+        padding-bottom: 5px;
+    }
 }

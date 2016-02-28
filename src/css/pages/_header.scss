@@ -5,6 +5,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 10;
     
     .menu-btn {
         border: 3px solid #fff;
@@ -38,9 +39,9 @@ header {
     }
     
     h1 {
+        @include align-items(center);
         @include flex;
         
-        align-items: center;
         background-color: $primary;
         font-size: 25px;
         font-weight: bold;
@@ -93,13 +94,12 @@ header {
     
     .menu {
         @include box-sizing(border-box);
-        @include translate(0, 0);
-        @include transition(left 0.5s);
+        @include translate(-100%, 0);
+        @include transition(transform 0.5s);
         
         background-color: $grey;
         color: #fff;
         font-weight: bold;
-        left: calc(40px - 100%);
         overflow-x: hidden;
         overflow-y: auto;
         position: absolute;
@@ -108,7 +108,7 @@ header {
         z-index: 5;
         
         &.open {
-            left: 0;
+            @include translate(0, 0);
         }
         
         h2 {
