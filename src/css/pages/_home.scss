@@ -1,0 +1,91 @@
+.home-content {
+    margin: -10px;
+    
+    img {
+        left: 0;
+        position: fixed;
+        top: 0;
+    }
+    
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    h3 {
+        background-color: transparent;
+        color: $primary;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+        padding: 10px;
+    }
+    
+    .solid-section {
+        background-color: rgba(256, 256, 256, 0.5);
+        margin-bottom: 10px;
+        padding: 10px;
+        position: relative;
+        text-align: center;
+        z-index: 2;
+        
+        h3 {
+            text-align: left;
+        }
+        
+        p {
+            font-size: 15px;
+            margin: 0;
+            padding: 10px;
+            
+            &:not(.center) {
+                text-align: left;
+            }
+        }
+    }
+    
+    .float-section {
+        @include border-radius(10px);
+        @include border-top-left-radius(30px);
+        @include border-bottom-right-radius(30px);
+        
+        background-color: rgba(256, 256, 256, 0.5);
+        margin: 30px;
+        padding: 10px;
+        position: relative;
+        text-align: right;
+        z-index: 2;
+        
+        h3 {
+            text-align: left;
+        }
+        
+        p {
+            font-size: 15px;
+            margin: 0;
+            padding: 10px;
+            text-align: left;
+        }
+    }
+    
+    .learn-more {
+        @include align-items(center);
+        @include flex;
+        
+        background-color: transparent;
+        color: $primary;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px;
+        text-align: right;
+        
+        .icon {
+            font-size: 25px;
+            margin-left: 10px;
+        }
+        
+        &:hover {
+            color: $secondary;
+        }
+    }
+}
