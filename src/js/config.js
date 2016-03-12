@@ -6,6 +6,7 @@ requirejs.config({
         angularAnimate: '../lib/angular-animate/angular-animate',
         angularRoute: '../lib/angular-route/angular-route.min',
         angularBootstrap: '../lib/angular-bootstrap/ui-bootstrap.min',
+        angularBootstrapTemplates: '../lib/angular-bootstrap/ui-bootstrap-tpls.min',
         angularResource: '../lib/angular-resource/angular-resource.min',
         text: '../lib/requirejs-text/text',
         html: '../html',
@@ -22,8 +23,11 @@ requirejs.config({
         angularRoute: {
             deps: ['angular']
         },
-        angularBootstrap: {
+        angularBootstrapTemplates: {
             deps: ['angular']
+        },
+        angularBootstrap: {
+            deps: ['angular', 'angularBootstrapTemplates']
         },
         angularAnimate: {
             deps: ['angular']

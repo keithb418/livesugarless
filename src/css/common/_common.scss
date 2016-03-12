@@ -172,3 +172,17 @@ a {
     margin-right: auto;
     text-align: center;
 }
+
+textarea {
+    resize: none;
+    
+    &.form-control {
+        height: 100px;
+        overflow-y: auto;
+    }
+}
+
+.form-required {
+    font-style: italic;
+    font-weight: bold;
+}

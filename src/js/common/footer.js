@@ -6,7 +6,12 @@ define((require) => {
         .directive('footerView', () => {
             return {
                 restrict: 'A',
-                template: template
+                template: template,
+                controller: 'footerCtrl'
             }
+        })
+        .controller('footerCtrl', ($scope, $uibModal) => {
+        })
+        .controller('contactMe', () => {
         });
 });

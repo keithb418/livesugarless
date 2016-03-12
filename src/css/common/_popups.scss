@@ -1,0 +1,72 @@
+.modal-content {
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: $primary;
+    color: #fff;
+    
+    h3 {
+        display: inline-block;
+        font-weight: bold;
+        line-height: 40px;
+        width: calc(100% - 45px);
+    }
+    
+    .btn-close {
+        @include border-radius(0);
+        
+        background-color: transparent;
+        font-size: 25px;
+        height: 40px;
+        padding: 0;
+        vertical-align: top;
+        width: 40px;
+        
+        &:focus {
+            background-color: transparent;
+            color: #fff;
+            
+            &:hover {
+                background-color: transparent;
+                color: #fff;
+                
+                &:active {
+                    background-color: transparent;
+                    color: #fff;
+                }
+            }
+            
+            &:active {
+                background-color: transparent;
+                color: #fff;
+            }
+        }
+        
+        &:hover {
+            background-color: transparent;
+            color: #fff;
+            
+            &:active {
+                background-color: transparent;
+                color: #fff;
+            }
+        }
+        
+        &:active {
+            background-color: transparent;
+            color: #fff;
+        }
+    }
+}
+
+.modal-body {
+    color: #000;
+}
+
+.modal-footer {
+    .btn-cancel {
+        background-color: $highlight;
+        color: $primary;
+    }
+}

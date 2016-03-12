@@ -4,9 +4,11 @@ define([
     'angularAnimate',
     'angularRoute',
     'angularBootstrap',
+    'angularBootstrapTemplates',
     'angularResource',
     'common/header',
     'common/footer',
+    'popups/contactMe',
     'pages/about',
     'pages/home',
 ],
@@ -17,10 +19,12 @@ define([
             'ngAnimate',
             'ngResource',
             'ui.bootstrap',
+            'ui.bootstrap.tpls',
             'header',
             'footer',
             'home',
             'about',
+            'contact'
         ])
         .config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
             $routeProvider.otherwise({redirectTo: '/'});
