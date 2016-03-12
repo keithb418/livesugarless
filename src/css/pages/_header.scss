@@ -31,6 +31,12 @@ header {
             &:hover {
                 background-color: $highlight;
             }
+            
+            &:active {
+                background-color: $secondary;
+                border-color: $secondary;
+                color: #fff;
+            }
         }
         
         &:active {

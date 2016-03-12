@@ -23,8 +23,25 @@ button {
     padding: 10px;
     
     &:focus {
-        background-color: inherit;
-        color: inherit;
+        background-color: $primary;
+        color: #fff;
+        
+        &:active {
+            background-color: $secondary;
+            border: 3px solid $secondary;
+            color: #fff;
+            
+            &:hover {
+                border: 3px solid $secondary;
+                background-color: $secondary;
+                color: #fff;
+            }
+        }
+        
+        &:hover {
+            background-color: $highlight;
+            color: $primary;
+        }
     }
     
     &:active {
@@ -34,6 +51,8 @@ button {
         
         &:hover {
             border: 3px solid $secondary;
+            background-color: $secondary;
+            color: #fff;
         }
     }
     
@@ -96,14 +115,6 @@ a {
 .contact {
     p {
         margin: 0;
-    }
-}
-        
-button.contact-me {
-    border: 0 none;
-    
-    &:active {
-        border: 0 none;
     }
 }
 
