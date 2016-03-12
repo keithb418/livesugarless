@@ -1,6 +1,5 @@
 define((require) => {
     let angular = require('angular');
-    let nodemailer = require('nodemailer');
     let btnTemplate = require('text!html/popups/contactMeBtn.html');
     let template = require('text!html/popups/contactMe.html');
     
@@ -20,11 +19,19 @@ define((require) => {
                 });
             };
         })
-        .controller('contactMeCtrl', ($scope, $uibModalInstance) => {
+        .controller('contactMeCtrl', ($scope, $uibModalInstance, $http) => {
+            $scope.contact = {};
+            
             $scope.closeContact = $uibModalInstance.close;
             
-            $scope.save = () => {
+            $scope.send = () => {
                 $scope.closeContact();
+                
+                $http.post('http://localhost:8081/contact-me', $scope.contact, {
+                    'headers': {
+                        'Content-Type': 'application/json'
+                    }
+                });
             };
         });
 });
