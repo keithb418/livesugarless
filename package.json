@@ -16,6 +16,9 @@
     "nodemailer": "~2.1.0",
     "bower": "~1.7.2",
     "express": "~4.13.4",
-    "body-parser": "~1.15.0"
+    "body-parser": "~1.15.0",
+    "xoauth2": "~1.1.0",
+    "passport": "~0.3.2",
+    "passport-google-oauth": "~1.0.0"
   }
 }

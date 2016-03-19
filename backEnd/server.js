@@ -3,26 +3,20 @@ var nodemailer = require('nodemailer');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var app = express();
+var data = fs.readFileSync('./BackEnd/gmailAuth.json', 'utf-8');
+data = JSON.parse(data);
+
+var generator = require('xoauth2').createXOAuth2Generator({
+    user: data.user,
+    clientId: data.clientId,
+    clientSecret: data.clientSecret,
+    refreshToken: data.refreshToken 
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
-
-var data = fs.readFileSync('./BackEnd/gmailAuth.json', 'utf-8');
-data = JSON.parse(data);
-
-var mailUser = data.user;
-var mailPass = data.pass;
-
-// var smtpTransport = nodemailer.createTransport("smtps://" + mailUser + ":" + mailPass + "@smtp.gmail.com");
-var smtpTransport = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: mailUser,
-        pass: mailPass
-    }
-});
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -31,9 +25,16 @@ app.all('*', function(req, res, next) {
 });
 
 app.post('/contact-me', function(req, res) {
+    var smtpTransport = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            xoauth2: generator
+        }
+    });
+    
     smtpTransport.sendMail({
         from: req.body.email,
-        to: mailUser,
+        to: data.user,
         subject: "Website Email - " + req.body.name + " - " + req.body.subject,
         text: req.body.message + "\n\nFrom:\n" + req.body.name + "\n" + req.body.email
     }, function(error, response) {
@@ -42,7 +43,9 @@ app.post('/contact-me', function(req, res) {
         } else {
             console.log("Message sent: " + response.message);
         }
-
+        
+        smtpTransport.close();
+        
         res.end();
     });
 });
