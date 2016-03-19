@@ -6,6 +6,7 @@ define([
     'angularBootstrap',
     'angularBootstrapTemplates',
     'angularResource',
+    'services/validationServices',
     'common/header',
     'common/footer',
     'popups/contactMe',
@@ -24,7 +25,8 @@ define([
             'footer',
             'home',
             'about',
-            'contact'
+            'contact',
+            'validation'
         ])
         .config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
             $routeProvider.otherwise({redirectTo: '/'});

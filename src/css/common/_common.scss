@@ -186,3 +186,13 @@ textarea {
     font-style: italic;
     font-weight: bold;
 }
+
+.form-error {
+    color: $brand-danger;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.invalid {
+    @include box-shadow(0 0 5px 1px $brand-danger);
+}
