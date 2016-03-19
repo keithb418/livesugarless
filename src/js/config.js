@@ -8,6 +8,7 @@ requirejs.config({
         angularBootstrap: '../lib/angular-bootstrap/ui-bootstrap.min',
         angularBootstrapTemplates: '../lib/angular-bootstrap/ui-bootstrap-tpls.min',
         angularResource: '../lib/angular-resource/angular-resource.min',
+        validator: '../lib/validator-js/validator.min',
         text: '../lib/requirejs-text/text',
         html: '../html',
         data: '../data',
