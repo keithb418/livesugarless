@@ -13,6 +13,9 @@ define([
     'popups/message',
     'pages/about',
     'pages/home',
+    'pages/freeConsult',
+    'pages/healthHistoryMen',
+    'pages/healthHistoryWomen'
 ],
 ($, angular) => {
     angular.module('takeChargeHealth', 
@@ -26,6 +29,9 @@ define([
             'footer',
             'home',
             'about',
+            'consult',
+            'healthHistoryMen',
+            'healthHistoryWomen',
             'contact',
             'message',
             'validation'

@@ -15,7 +15,7 @@
             "items": [
                 {
                     "name": "Free Consultation",
-                    "route": "#/"
+                    "route": "#/free-consultation"
                 },
                 {
                     "name": "6 Month Program",
@@ -29,11 +29,11 @@
             "items": [
                 {
                     "name": "Men's Health History",
-                    "route": "#/"
+                    "route": "#/health-history-men"
                 },
                 {
                     "name": "Women's Health History",
-                    "route": "#/"
+                    "route": "#/health-history-women"
                 }
             ]
         },

@@ -24,6 +24,11 @@ define((require) => {
             $scope.title = messageOpts.title;
             $scope.message = messageOpts.message;
             $scope.icon = messageOpts.icon;
+            $scope.action1 = messageOpts.action1 || {};
+            $scope.action2 = messageOpts.action2 || {};
+            
+            $scope.doAction1 = typeof $scope.action1.action === "function" ? $scope.action1.action : () => {};
+            $scope.doAction2 = typeof $scope.action2.action === "function" ? $scope.action2.action : () => {};
             
             $scope.closeMessage = $uibModalInstance.close;
             

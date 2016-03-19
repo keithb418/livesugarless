@@ -1,0 +1,103 @@
+<h2>Free Consultation</h2>
+<p>Please fill out the form below to request your Free Consultation! I'll get back to you within 2-3 business days to schedule
+    your appointment. Thanks!</p>
+<div ng-controller="collapseCtrl">
+    <button class="section-collapse" ng-click="isCollapsed = !isCollapsed">
+        <span>What is the Free Consultation?</span>
+        <span class="collapse-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}" aria-hidden="true"></span>
+    </button>
+    <div uib-collapse="isCollapsed" class="more-info-collapse collapsible">
+        <p>The Free Consultation is a session where we'll discuss your health history and your goals to improve your life. It
+            is completely risk-free and you are absolutely not obligated to continue with the program afterwards.</p>
+    </div>
+</div>
+<p class="form-required">* Required Fields</p>
+<p class="form-error" ng-if="errors"><span class="fa fa-warning" aria-hidden="true"></span> Please correct the errors below:</p>
+<form>
+    <div class="form-group first-name">
+        <label for="first-name">* First Name</label>
+        <p class="form-error" ng-if="errors.firstName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.firstName}}</p>
+        <input required type="text" id="first-name" ng-class="{invalid: errors.firstName}" class="form-control" ng-model="consult.firstName"
+        maxlength="15" />
+    </div>
+    <div class="form-group middle-name">
+        <label for="middle-name" aria-label="Middle Initial">M.I.</label>
+        <p class="form-error" ng-if="errors.middleName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.firstName}}</p>
+        <input required type="text" id="middle-name" ng-class="{invalid: errors.middleName}" class="form-control" ng-model="consult.middleName"
+        maxlength="1" />
+    </div>
+    <div class="form-group last-name">
+        <label for="last-name">* Last Name</label>
+        <p class="form-error" ng-if="errors.lastName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.lastName}}</p>
+        <input required type="text" id="last-name" ng-class="{invalid: errors.lastName}" class="form-control" ng-model="consult.lastName"
+        maxlength="15" />
+    </div>
+    <div class="form-group">
+        <label for="nickname">Preferred / Nickname</label>
+        <p class="form-error" ng-if="errors.nickName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nickName}}</p>
+        <input required type="text" id="nickname" ng-class="{invalid: errors.nickName}" class="form-control" ng-model="consult.nickName"
+        maxlength="15" />
+    </div>
+    <div class="form-group">
+        <label for="email">* Email Address</label>
+        <p class="form-error" ng-if="errors.email"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.email}}</p>
+        <input required type="text" id="email" ng-class="{invalid: errors.email}" class="form-control" ng-model="consult.email" />
+    </div>
+    <div class="form-group">
+        <label for="phone">* Phone <span class="format">xxx-xxx-xxxx or (xxx)xxx-xxxx</span></label>
+        <p class="form-error" ng-if="errors.phone"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.phone}}</p>
+        <input required type="text" id="phone" ng-class="{invalid: errors.phone}" class="form-control" ng-model="consult.phone" />
+    </div>
+    <fieldset class="availability">
+        <legend>* Your Availability</legend>
+        <p class="form-error" ng-if="errors.availability"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.availability}}</p>
+        <div class="col-xs-2 time-of-day">
+            <p aria-hidden="true">9am-12pm</p>
+            <p aria-hidden="true">1pm-5pm</p>
+        </div>
+        <div class="col-xs-4">
+            <p aria-hidden="true" class="day">Wednesday</p>
+            <label for="wed-am" class="sr-only">Wednesday 9am-12pm</label>
+            <div class="click-area" ng-click="clickCheckbox($event)">
+                <input id="wed-am" type="checkbox" name="availability" ng-model="consult.availability.wedAM" />
+            </div>
+            <label for="wed-am" class="sr-only">Wednesday 1pm-5pm</label>
+            <div class="click-area" ng-click="clickCheckbox($event)">
+                <input id="wed-pm" type="checkbox" name="availability" ng-model="consult.availability.wedPM" />
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <p aria-hidden="true" class="day">Thursday</p>
+            <label for="thurs-am" class="sr-only">Thursday 9am-12pm</label>
+            <div class="click-area" ng-click="clickCheckbox($event)">
+                <input id="thurs-am" type="checkbox" name="availability" ng-model="consult.availability.thursAM" />
+            </div>
+            <label for="thurs-pm" class="sr-only">Thursday 1pm-5pm</label>
+            <div class="click-area" ng-click="clickCheckbox($event)">
+                <input id="thurs-pm" type="checkbox" name="availability" ng-model="consult.availability.thursPM" />
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <p aria-hidden="true" class="day">Friday</p>
+            <label for="fri-am" class="sr-only">Friday 9am-12pm</label>
+            <div class="click-area" ng-click="clickCheckbox($event)">
+                <input id="fri-am" type="checkbox" name="availability" ng-model="consult.availability.friAM" />
+            </div>
+            <label for="fri-pm" class="sr-only">Friday 1pm-5pm</label>
+            <div class="click-area" ng-click="clickCheckbox($event)">
+                <input id="fri-pm" type="checkbox" name="availability" ng-model="consult.availability.friPM" />
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea required id="comments" ng-class="{invalid: errors.comments}" class="form-control" ng-model="consult.comments"></textarea>
+    </div>
+</form>
+<button ng-if="!submitted" type="button" id="submit" ng-click="submit()">Submit</button>
+<div ng-if="submitted">
+    <p>Thank you for requesting a free consultation! I'll get back to you in 2-3 business days. Please fill out a health history
+        form before your consultation. Thanks again!</p>
+    <a href="#/health-history-men">Men's Health History Form</a>
+    <a href="#/health-history-women">Women's Health History Form</a>
+</div>

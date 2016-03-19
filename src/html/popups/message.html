@@ -10,5 +10,7 @@
     <p class="timeout">This message will automatically close in {{timeout}} {{units}}.</p>
 </div>
 <div class="modal-footer">
-    <button class="btn-cancel" type="button" ng-click="closeMessage()">OK</button>
+    <button ng-if="action1 && action1.text" type="button" ng-click="doAction1()">{{action1.text}}</button>
+    <button ng-if="action2 && action2.text" type="button" ng-click="doAction2()">{{action2.text}}</button>
+    <button class="btn-cancel" type="button" ng-click="closeMessage()">Close</button>
 </div>

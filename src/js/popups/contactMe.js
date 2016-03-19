@@ -49,13 +49,18 @@ define((require) => {
                 }
             ];
             
+            let disableAllInputs = () => {
+                angular.element('input, button, textarea').attr('disabled', 'disabled');
+            };
+            
             $scope.send = () => {
                 let errors = validateForm($scope.contact, formConfig);
                 
                 if (errors) {
-                    console.log(errors);
                     $scope.errors = errors;
                 } else {
+                    disableAllInputs();
+                    
                     $http.post('http://localhost:8081/contact-me', $scope.contact, {
                         'headers': {
                             'Content-Type': 'application/json'

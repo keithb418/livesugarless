@@ -196,3 +196,18 @@ textarea {
 .invalid {
     @include box-shadow(0 0 5px 1px $brand-danger);
 }
+
+label {
+    .format {
+        font-style: italic;
+        font-weight: normal;
+    }
+}
+
+.time-of-day {
+    padding-top: 30px;
+    
+    p {
+        margin: 0;
+    }
+}
