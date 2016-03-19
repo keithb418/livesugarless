@@ -11,6 +11,10 @@
         font-weight: bold;
         line-height: 40px;
         width: calc(100% - 45px);
+        
+        .fa {
+            margin-right: 10px;
+        }
     }
     
     .btn-close {
@@ -69,4 +73,9 @@
         background-color: $highlight;
         color: $primary;
     }
+}
+
+.timeout {
+    color: #000;
+    font-style: italic;
 }

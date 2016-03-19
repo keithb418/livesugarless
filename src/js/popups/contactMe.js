@@ -11,15 +11,17 @@ define((require) => {
                 controller: 'contactMeBtnCtrl'
             };
         })
-        .controller('contactMeBtnCtrl', ($scope, $uibModal) => {
+        .controller('contactMeBtnCtrl', ($scope, $uibModal, $uibModalStack) => {
             $scope.openContact = () => {
+                $uibModalStack.dismissAll();
+                
                 $uibModal.open({
                     template: template,
                     controller: 'contactMeCtrl'
                 });
             };
         })
-        .controller('contactMeCtrl', ($scope, $uibModalInstance, $http, validateForm) => {
+        .controller('contactMeCtrl', ($scope, $uibModalInstance, $http, validateForm, showMessage) => {
             $scope.contact = {};
             
             $scope.closeContact = $uibModalInstance.close;
@@ -54,12 +56,22 @@ define((require) => {
                     console.log(errors);
                     $scope.errors = errors;
                 } else {
-                    $scope.closeContact();
-                    
                     $http.post('http://localhost:8081/contact-me', $scope.contact, {
                         'headers': {
                             'Content-Type': 'application/json'
                         }
+                    }).then(() => {
+                        showMessage({
+                            title: 'Message Sent',
+                            message: "Thank you for contacting me!  I'll get back to you within the next 2-3 business days.",
+                            icon: 'fa-check'
+                        });
+                    }, () => {
+                        showMessage({
+                            title: 'Error Sending Message',
+                            message: "There was an error sending your message.  Please try again later or contact me directly if it's still an issue: teribrown1015@gmail.com",
+                            icon: 'fa-warning'
+                        });
                     });
                 }
             };

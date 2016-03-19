@@ -10,6 +10,7 @@ define([
     'common/header',
     'common/footer',
     'popups/contactMe',
+    'popups/message',
     'pages/about',
     'pages/home',
 ],
@@ -26,6 +27,7 @@ define([
             'home',
             'about',
             'contact',
+            'message',
             'validation'
         ])
         .config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
