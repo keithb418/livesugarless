@@ -9,9 +9,9 @@ define((require) => {
                     return validator.blacklist(text, '\<\>\\\&\;');
                 },
                 textSpace (text) {
-                    return validator.matches(text, /^[\w\s\.]+$/g) ? 
+                    return validator.matches(text, /^[\w\s\.\-]+$/g) ? 
                         false :
-                        'Please enter only letters, spaces, or a period.';
+                        'Please enter only letters, spaces, dashes, or a period.';
                 },
                 textStrict (text) {
                     return validator.isAlpha(text) ?
@@ -33,11 +33,9 @@ define((require) => {
                         false :
                         'Please enter only numbers';
                 }
-            }
+            };
         })
         .factory('validateForm', (formValidators) => {
-            let validators = formValidators;
-            
             return (values, config) => {
                 let errors;
                 

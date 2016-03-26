@@ -1,0 +1,55 @@
+
+
+textarea {
+    resize: none;
+    
+    &.form-control {
+        height: 100px;
+        overflow-y: auto;
+    }
+}
+
+.form-required {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.form-error {
+    color: $brand-danger;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.invalid {
+    @include box-shadow(0 0 5px 1px $brand-danger);
+}
+
+label {
+    .format {
+        font-style: italic;
+        font-weight: normal;
+    }
+}
+
+.time-of-day {
+    padding-top: 30px;
+    
+    p {
+        margin: 0;
+    }
+}
+
+.health-history {
+    h3 {
+        color: $iin-red;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
+.iin-logo {
+    img {
+        height: auto;
+        width: 320px;
+    }
+}

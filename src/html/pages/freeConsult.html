@@ -20,12 +20,6 @@
         <input required type="text" id="first-name" ng-class="{invalid: errors.firstName}" class="form-control" ng-model="consult.firstName"
         maxlength="15" />
     </div>
-    <div class="form-group middle-name">
-        <label for="middle-name" aria-label="Middle Initial">M.I.</label>
-        <p class="form-error" ng-if="errors.middleName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.firstName}}</p>
-        <input required type="text" id="middle-name" ng-class="{invalid: errors.middleName}" class="form-control" ng-model="consult.middleName"
-        maxlength="1" />
-    </div>
     <div class="form-group last-name">
         <label for="last-name">* Last Name</label>
         <p class="form-error" ng-if="errors.lastName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.lastName}}</p>
@@ -41,7 +35,7 @@
     <div class="form-group">
         <label for="email">* Email Address</label>
         <p class="form-error" ng-if="errors.email"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.email}}</p>
-        <input required type="text" id="email" ng-class="{invalid: errors.email}" class="form-control" ng-model="consult.email" />
+        <input required type="email" id="email" ng-class="{invalid: errors.email}" class="form-control" ng-model="consult.email" />
     </div>
     <div class="form-group">
         <label for="phone">* Phone <span class="format">xxx-xxx-xxxx or (xxx)xxx-xxxx</span></label>

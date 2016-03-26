@@ -1,1 +1,157 @@
 <h2>Men's Health History</h2>
+<div class="iin-logo">
+    <img src="assets/images/IIN_logo.jpg" alt="Institute for Integrative Nutrition Logo" />
+</div>
+<div ng-controller="collapseCtrl">
+    <button class="section-collapse" ng-click="isCollapsed = !isCollapsed">
+        <span>Privacy Statement</span>
+        <span class="collapse-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}" aria-hidden="true"></span>
+    </button>
+    <div uib-collapse="isCollapsed" class="more-info-collapse collapsible">
+        <p>
+            Your privacy is important to me. All of your information will be kept strictly between us. I will only use your personal
+            contact information to provide you with the best possible service. If you have any questions, comments, or concerns,
+            please contact me.
+            <contact-me />
+        </p>
+    </div>
+</div>
+<p class="form-required">* Required Fields</p>
+<p class="form-error" ng-if="errors"><span class="fa fa-warning" aria-hidden="true"></span> Please correct the errors below:</p>
+<form class="health-history">
+    <h3>Personal Information</h3>
+    <div class="form-group first-name">
+        <p class="form-error" ng-if="errors.firstName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.firstName}}</p>
+        <label for="first-name">* First Name</label>
+        <input required type="text" id="first-name" ng-class="{invalid: errors.firstName}" class="form-control" ng-model="health.firstName"
+        maxlength="15" />
+    </div>
+    <div class="form-group last-name">
+        <p class="form-error" ng-if="errors.lastName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.lastName}}</p>
+        <label for="last-name">* Last Name</label>
+        <input required type="text" id="last-name" ng-class="{invalid: errors.lastName}" class="form-control" ng-model="health.lastName"
+        maxlength="15" />
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.email"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.email}}</p>
+            <label for="email">* Email</label>
+            <input required type="email" id="email" ng-class="{invalid: errors.email}" class="form-control" ng-model="health.email" />
+        </div>
+        <div class="form-group">
+            <label for="email-freq">How often do you check email?</label>
+            <input type="text" id="email-freq" class="form-control" ng-model="health.emailFreq" />
+        </div>
+    </div>
+    <p class="label">Phone <span class="format">xxx-xxx-xxxx or (xxx)xxx-xxxx</span></p>
+    <div class="form-inline">
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.homePhone"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.homePhone}}</p>
+            <label for="home-phone" aria-label="Home Phone">Home</label>
+            <input type="tel" id="home-phone" ng-class="{invalid: errors.homePhone}" class="form-control" ng-model="health.homePhone" />
+        </div>
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.workPhone"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.workPhone}}</p>
+            <label for="work-phone" aria-label="Work Phone">Work</label>
+            <input type="tel" id="work-phone" ng-class="{invalid: errors.workPhone}" class="form-control" ng-model="health.workPhone" />
+        </div>
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.cellPhone"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.cellPhone}}</p>
+            <label for="cell-phone" aria-label="Mobile Phone">Mobile</label>
+            <input type="tel" id="cell-phone" ng-class="{invalid: errors.cellPhone}" class="form-control" ng-model="health.cellPhone" />
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.age"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.age}}</p>
+            <label for="age">Age</label>
+            <input type="number" id="age" ng-change="restrictTo(3, health.age, 'age')" ng-class="{invalid: errors.age}" class="form-control" ng-model="health.age"/>
+        </div>
+        <div class="grouped-inputs">
+            <p class="label">Height</p>
+            <div class="form-group">
+                <label for="height-feet" class="sr-only">Height - feet</label>
+                <div class="input-group">
+                    <input type="number" ng-change="restrictTo(2, health.heightFeet, 'heightFeet')" id="height-feet" class="form-control" ng-model="health.heightFeet" maxlength="2" width="2"/>
+                    <span class="input-group-addon" aria-hidden="true">ft.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="height-inches" class="sr-only">Height - inches</label>
+                <div class="input-group">
+                    <input type="number" ng-change="restrictTo(2, health.heightInches, 'heightInches')" id="height-inches" class="form-control" ng-model="health.heightInches" maxlength="2" width="2"/>
+                    <span class="input-group-addon" aria-hidden="true">in.</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.birthdate"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.birthdate}}</p>
+            <label for="birthdate">Birthdate <span class="format">MM/DD/YYYY</span></label>
+            <input type="tel" id="birthdate" ng-class="{invalid: errors.birthdate}" class="form-control" ng-model="health.birthdate" />
+        </div>
+        <div class="form-group">
+            <p class="form-error" ng-if="errors.birthplace"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.birthplace}}</p>
+            <label for="birthplace">Place of Birth</label>
+            <input type="text" id="birthplace" ng-class="{invalid: errors.birthplace}" class="form-control" ng-model="health.birthplace" />
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="curr-weight" aria-label="Current Weight in pounds">Current Weight</label>
+            <div class="input-group">
+                <input type="number" ng-change="restrictTo(3, height.currWeight, 'currWeight')" id="curr-weight" class="form-control" ng-model="health.currWeight" />
+                <span class="input-group-addon" aria-hidden="true">lbs.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="six-month-weight" aria-label="Weight six month ago in pounds">Weight Six Months Ago</label>
+            <div class="input-group">
+                <input type="number" ng-change="restrictTo(3, health.sixMonthWeight, 'sixMonthWeight')" id="six-month-weight" class="form-control" ng-model="health.sixMonthWeight" />
+                <span class="input-group-addon" aria-hidden="true">lbs.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="year-weight" aria-label="Weight one year ago in pounds">One Year Ago</label>
+            <div class="input-group">
+                <input type="number" ng-change="restrictTo(3, health.yearWeight, 'yearWeight')" id="year-weight" class="form-control" ng-model="health.yearWeight" />
+                <span class="input-group-addon" aria-hidden="true">lbs.</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-inline">
+        <fieldset>
+            <legend>Would you like your weight to be different?</legend>
+            <div class="input-group">
+                <span class="input-group-addon" ng-click="health.weightDiff = 'yes'">
+                    <input type="radio" id="weight-diff-yes" ng-model="health.weightDiff" value="yes" />
+                </span>
+                <label for="weight-diff-yes" class="form-control">Yes</label>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" ng-click="health.weightDiff = 'no'">
+                    <input type="radio" id="weight-diff-no" ng-model="health.weightDiff" value="no" />
+                </span>
+                <label for="weight-diff-no" class="form-control">No</label>
+            </div>
+        </fieldset>
+        <fieldset ng-if="health.weightDiff === 'yes'">
+            <legend>If so, what?</legend>
+            <p class="form-error" ng-if="errors.weightDiffWhat"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.weightDiffWhat}}</p>
+            <div class="input-group">
+                <span class="input-group-addon" ng-click="health.weightDiffWhat = 'higher'">
+                    <input type="radio" id="weightDiffWhat" ng-model="health.weightDiffWhat" value="higher" />
+                </span>
+                <label for="weight-diff-heigher" class="form-control">Higher</label>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" ng-click="health.weightDiffWhat = 'lower'">
+                    <input type="radio" id="weightDiffWhat" ng-model="health.weightDiffWhat" value="lower" />
+                </span>
+                <label for="weight-diff-heigher" class="form-control">Lower</label>
+            </div>
+        </fieldset>
+    </div>
+    <h3>Social Information</h3>
+</form>
+<button ng-if="!submitted" type="button" id="submit" ng-click="submit()">Submit</button>
+<p>&copy; Integrative Nutrition</p>

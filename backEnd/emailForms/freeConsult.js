@@ -31,11 +31,6 @@ module.exports = {
                 isAlpha: true,
                 errorMessage: 'Invalid First Name'
             },
-            middleName: {
-                optional: true,
-                isAlpha: true,
-                errorMessage: 'Invalid Middle Initial'
-            },
             lastName: {
                 notEmpty: true,
                 isAlpha: true,
@@ -76,7 +71,6 @@ module.exports = {
             
             var name = req.body.firstName + " " + req.body.lastName;
             var text =  "First Name: " + req.body.firstName + "\n" +
-                        "Middle Initial: " + (req.body.middleName || "") + "\n" +
                         "Last Name: " + req.body.lastName + "\n" +
                         "Preferred / Nickname: " + (req.body.nickname || "") + "\n" + 
                         "Email: " + req.body.email + "\n" +

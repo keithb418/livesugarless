@@ -23,10 +23,6 @@ define((require) => {
                     required: true
                 },
                 {
-                    name: 'middleName',
-                    type: 'textStrict'
-                },
-                {
                     name: 'lastName',
                     type: 'textStrict',
                     required: true
