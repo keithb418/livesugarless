@@ -53,7 +53,7 @@ header {
         font-weight: bold;
         height: 60px;
         margin: 0;
-        padding: 10px 10px 10px 60px;
+        padding: 10px;
         z-index: 10;
         
         .tch-logo {
@@ -207,6 +207,71 @@ header {
         
         .contact {
             padding: 10px;
+        }
+    }
+    
+    .navbar {
+        @include border-radius(0);
+        
+        background-color: $dark-grey;
+        border: 0 none;
+        color: #fff;
+        height: 40px;
+        margin: 0;
+        min-height: 0;
+        padding: 0;
+        
+        .navbar-item {
+            display: inline-block;
+        }
+        
+        a, button {
+            @include border-radius(0);
+            
+            background-color: transparent;
+            border: 0 none;
+            color: #fff;
+            display: block;
+            font-size: 16px;
+            font-weight: normal;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            
+            &:hover {
+                background-color: $secondary;
+            }
+            
+            &:focus {
+                color: #fff;
+                
+                &:active {
+                    &:hover {
+                        border: 0 none;
+                    }
+                }
+            }
+            
+            &:active {
+                border: 0 none;
+                color: #fff;
+            }
+        }
+        
+        .dropdown-menu {
+            @include border-radius(0);
+            
+            background-color: $grey;
+            border: 0 none;
+            margin: 0;
+            padding: 0;
+            
+            a {
+                &:hover {
+                    background-color: $secondary;
+                    color: #fff;
+                }
+            }
         }
     }
 }

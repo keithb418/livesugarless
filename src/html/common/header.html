@@ -4,40 +4,54 @@
         <span class="tch-text">Take Charge Health<span>
     </h1>
 </a>
-<button id="menu-btn" class="menu-btn" ng-class="{open: menuOpen}" ng-click="menuOpen = !menuOpen" title="Open Menu">
-    <span class="fa fa-bars" aria-hidden="true"></span>
-    Menu
-</button>
-<div class="close-menu" resize ng-class="{open: menuOpen}" ng-click="closeMenu()" ng-style="updateHeight(60)"></div>
-<div id="menu" class="menu" resize ng-class="{open: menuOpen}" ng-style="updateHeight(60)">
-    <h2>Menu</h2>
-    <ul>
-        <li ng-controller="collapseCtrl" ng-repeat="item in items" ng-switch on="item.submenu">
-            <div ng-switch-default>
-                <a href="{{item.route}}" ng-click="closeMenu()">
-                    {{item.name}}
-                    <span ng-if="item.icon" class="menu-icon fa {{item.icon}}"></span>
-                </a>
-            </div>
-            <div ng-switch-when="true">
-                <button ng-click="isCollapsed = !isCollapsed">
-                    {{item.name}}
-                    <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
-                </button>
-                <div uib-collapse="isCollapsed" class="section">
-                    <a ng-repeat="subitem in item.items" href="{{subitem.route}}" ng-click="closeMenu()">
-                        {{subitem.name}}
-                        <span ng-if="subitem.icon" class="menu-icon fa {{subitem.icon}}"></span>
+<div ng-if="smallScreen">
+    <button id="menu-btn" class="menu-btn" ng-class="{open: menuOpen}" ng-click="menuOpen = !menuOpen" title="Open Menu">
+        <span class="fa fa-bars" aria-hidden="true"></span> Menu
+    </button>
+    <div class="close-menu" ng-class="{open: menuOpen}" ng-click="closeMenu()" ng-style="updateHeight(60)"></div>
+    <div id="menu" class="menu" ng-class="{open: menuOpen}" ng-style="updateHeight(60)">
+        <h2>Menu</h2>
+        <ul>
+            <li ng-controller="collapseCtrl" ng-repeat="item in items" ng-switch on="item.submenu">
+                <div ng-switch-default>
+                    <a href="{{item.route}}" ng-click="closeMenu()">
+                        {{item.name}}
+                        <span ng-if="item.icon" class="menu-icon fa {{item.icon}}"></span>
                     </a>
                 </div>
-            </div>
-        </li>
-    </ul>
-    <contact-me />
-    <div class="contact">
-        <p>Teri Brown</p>
-        <p>Health Coach</p>
-        <p><a href="tel:6032038899" ng-click="closeMenu()">(603)-203-8899</a></p>
-        <p><a href="mailto:teribrown1015@gmail.com" ng-click="closeMenu()">teribrown1015@gmail.com</a></p>
+                <div ng-switch-when="true">
+                    <button ng-click="isCollapsed = !isCollapsed">
+                        {{item.name}}
+                        <span class="menu-icon menu-arrow fa fa-arrow-circle-down" ng-class="{'arrow-up': !isCollapsed}"></span>
+                    </button>
+                    <div uib-collapse="isCollapsed" class="section">
+                        <a ng-repeat="subitem in item.items" href="{{subitem.route}}" ng-click="closeMenu()">
+                            {{subitem.name}}
+                            <span ng-if="subitem.icon" class="menu-icon fa {{subitem.icon}}"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <contact-me />
+        <div class="contact">
+            <p>Teri Brown</p>
+            <p>Health Coach</p>
+            <p><a href="tel:6032038899" ng-click="closeMenu()">(603)-203-8899</a></p>
+            <p><a href="mailto:teribrown1015@gmail.com" ng-click="closeMenu()">teribrown1015@gmail.com</a></p>
+        </div>
+    </div>
+</div>
+<div class="navbar" ng-if="!smallScreen">
+    <div class="navbar-item" ng-repeat="item in items" ng-switch on="item.submenu">
+        <a ng-switch-default href="{{item.route}}">{{item.name}}</a>
+        <div ng-switch-when="true" uib-dropdown>
+            <button id="{{item.name}}" uib-dropdown-toggle>{{item.name}}</button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="{{item.name}}">
+                <li ng-repeat="subitem in item.items" role="menuitem">
+                    <a href="{{subitem.route}}">{{subitem.name}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

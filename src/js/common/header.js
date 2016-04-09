@@ -8,24 +8,28 @@ define((require) => {
         .directive('headerView', () => {
             return {
                 restrict: 'A',
-                template: template,
+                template,
                 controller: 'headerCtrl'
             }
         })
         .directive('resize', ($window) => {
             return ($scope, $el, attr) => {
                 let w = angular.element($window);
+                let changeWidth = 400;
                 
                 $scope.$watch(() => {
                     return {
-                        'height': w.outerHeight()
+                        'height': w.outerHeight(),
+                        'width': window.innerWidth
                     };
                 }, (newValue, oldValue) => {
+                    $scope.smallScreen = newValue.width < changeWidth;
+                    
                     $scope.updateHeight = (offset) => {
                         return {
                             height: `${newValue.height - offset}px`
                         };
-                    }
+                    };
                 }, true);
                 
                 w.bind('resize', () => {
