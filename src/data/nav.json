@@ -14,6 +14,10 @@
             "submenu": "true",
             "items": [
                 {
+                    "name": "What is a Health Coach?",
+                    "route": "#/"
+                },
+                {
                     "name": "Free Consultation",
                     "route": "#/free-consultation"
                 },

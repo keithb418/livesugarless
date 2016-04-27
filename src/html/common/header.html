@@ -1,9 +1,12 @@
-<a href="#/" title="Go to the Home Page" ng-click="closeMenu()">
-    <h1>
+<h1>
+    <a href="#/" title="Go to the Home Page" ng-click="closeMenu()">
         <span class="tch-logo" aria-hidden="true"></span>
-        <span class="tch-text">Take Charge Health<span>
-    </h1>
-</a>
+        <span class="tch-text">
+            <span class="block tch-title">Take Charge Health</span>
+            <!--<span class="block tch-tagline">Integrative Nutrition Health Coach</span>-->
+        <span>
+    </a>
+</h1>
 <div ng-if="smallScreen">
     <button id="menu-btn" class="menu-btn" ng-class="{open: menuOpen}" ng-click="menuOpen = !menuOpen" title="Open Menu">
         <span class="fa fa-bars" aria-hidden="true"></span> Menu

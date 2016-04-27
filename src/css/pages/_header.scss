@@ -49,12 +49,23 @@ header {
         @include flex;
         
         background-color: $primary;
-        font-size: 25px;
         font-weight: bold;
         height: 60px;
         margin: 0;
         padding: 10px;
         z-index: 10;
+        
+        .tch-text {
+            display: inline-block;
+        }
+        
+        .tch-title {
+            font-size: 25px;
+        }
+        
+        .tch-tagline {
+            font-size: 13px;
+        }
         
         .tch-logo {
             $top-radius: 20px;

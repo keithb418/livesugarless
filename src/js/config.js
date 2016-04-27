@@ -9,6 +9,7 @@ requirejs.config({
         angularBootstrapTemplates: '../lib/angular-bootstrap/ui-bootstrap-tpls.min',
         angularResource: '../lib/angular-resource/angular-resource.min',
         validator: '../lib/validator-js/validator.min',
+        scrollMe: '../lib/scrollme/jquery.scrollme.min',
         text: '../lib/requirejs-text/text',
         html: '../html',
         data: '../data',
@@ -35,6 +36,9 @@ requirejs.config({
         },
         angularResource: {
             deps: ['angular']
+        },
+        scrollMe: {
+            deps: ['jquery']
         }
     }
 });

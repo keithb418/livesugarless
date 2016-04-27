@@ -6,11 +6,11 @@ footer {
     
     .contact {
         padding-right: 10px;
+        width: calc(100% - 130px);
     }
     
     .other-contact {
         text-align: right;
-        width: calc(100% - 185px);
         
         .social-media {
             margin-top: 10px;
