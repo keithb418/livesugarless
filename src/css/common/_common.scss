@@ -1,5 +1,5 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -81,10 +81,9 @@ footer {
     position: relative;
 
     h2 {
-        background-color: $highlight;
-        color: $primary;
-        font-size: 22px;
-        font-weight: bold;
+        background-color: $dark-primary;
+        color: #fff;
+        font-size: 20px;
         margin: -10px -10px 20px -10px;
         padding: 10px;
         position: relative;
@@ -92,7 +91,7 @@ footer {
         &:after {
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
-            border-top: 10px solid $highlight;
+            border-top: 10px solid $dark-primary;
             content: '';
             display: block;
             left: 10px;

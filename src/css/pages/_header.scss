@@ -49,6 +49,7 @@ header {
         @include flex;
         
         background-color: $primary;
+        border-bottom: 2px solid $dark-primary;
         font-weight: bold;
         height: 60px;
         margin: 0;

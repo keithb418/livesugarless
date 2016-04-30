@@ -1,5 +1,5 @@
 .home-content {
-    margin: -10px;
+    margin: -12px;
     
     .back-img {
         left: 0;
@@ -21,10 +21,21 @@
         padding: 10px;
     }
     
+    .solid-section, .float-section {
+        padding: 0 30px;
+        
+        .home-section-body {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+    }
+    
     .solid-section {
-        background-color: rgba(256, 256, 256, 0.5);
+        background-color: $light-grey;
+        border: 0 solid $border;
+        border-width: 2px 0;
+        color: $dark-grey;
         margin-bottom: 10px;
-        padding: 10px;
         position: relative;
         text-align: center;
         z-index: 2;
@@ -42,19 +53,28 @@
                 text-align: left;
             }
         }
+        
+        .home-section-body {
+            padding: 10px;
+        }
     }
     
     .float-section {
-        @include border-radius(10px);
-        @include border-top-left-radius(30px);
-        @include border-bottom-right-radius(30px);
+        text-align: center;
+        padding: 30px;
         
-        background-color: rgba(256, 256, 256, 0.5);
-        margin: 30px;
-        padding: 10px;
-        position: relative;
-        text-align: right;
-        z-index: 2;
+        .home-section-body {
+            @include border-radius(10px);
+            @include border-top-left-radius(30px);
+            @include border-bottom-right-radius(30px);
+            
+            background-color: rgba(256, 256, 256, 0.75);
+            border: 2px solid $border;
+            padding: 10px;
+            position: relative;
+            text-align: right;
+            z-index: 2;
+        }
         
         h3 {
             text-align: left;

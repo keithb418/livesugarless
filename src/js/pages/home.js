@@ -16,11 +16,8 @@ define((require) => {
         .directive('resizeImg', ($window) => {
             return ($scope, $el, attr) => {
                 let w = angular.element($window);
-                let $header = angular.element('header');
                 let $footer = angular.element('footer');
-                let headerHeight = $header.outerHeight();
                 let footerHeight = $footer.outerHeight();
-                let height = w.outerHeight() - (headerHeight + footerHeight);
                 
                 $scope.$watch(() => {
                     return {
@@ -29,9 +26,7 @@ define((require) => {
                     };
                 }, (newValue, oldValue) => {
                     $scope.updateImg = () => {
-                        var style = {};
-                        
-                        if (newValue.width >= newValue.height) {
+                        if (newValue.width > (newValue.height + footerHeight + 45)) {
                             return {
                                 height: 'auto',
                                 width: '100%'
