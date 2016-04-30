@@ -162,6 +162,11 @@ header {
                 &:hover {
                     background-color: $secondary;
                     color: #fff;
+                    
+                    &:active:focus {
+                        border: 0 none;
+                        border-bottom: 3px solid #fff;
+                    }
                 }
                 
                 &:active {
