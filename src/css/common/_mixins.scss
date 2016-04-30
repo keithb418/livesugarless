@@ -49,3 +49,9 @@
     -webkit-align-items: $align;
     align-items: $align;
 }
+
+@mixin box-shadow($box-shadow) {
+    -webkit-box-shadow: $box-shadow rgba(0,0,0,0.75);
+    -moz-box-shadow: $box-shadow rgba(0,0,0,0.75);
+    box-shadow: $box-shadow rgba(0,0,0,0.75);
+}

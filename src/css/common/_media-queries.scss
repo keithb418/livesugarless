@@ -28,3 +28,29 @@
         }
     }
 }
+
+@media (max-width: 650px) {
+    .blog-section {
+        img {
+            display: block;
+        }
+    }
+    
+    .home-content {
+        .right-section {
+            border: 0 none;
+            display: block;
+            width: initial;
+        }
+        
+        .blog-section {
+            .right-section {
+                width: initial;
+            }
+        }
+        
+        .flex-section {
+            display: block;
+        }
+    }
+}

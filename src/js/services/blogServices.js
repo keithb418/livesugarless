@@ -48,21 +48,34 @@ define((require) => {
                     return this.sortCommentsInPosts(Array.from(postsMap.values()));
                 }
                 getPosts () {
-                    let deferred = $q.defer();
+                    let blogUrl = `https://www.googleapis.com/blogger/v3/blogs/${apiData.blogId}/posts?key=${apiData.key}`;
                     
-                    $q.all([
-                        $http.get(`data/blogposts.json?key=${apiData.key}&blogId=${apiData.blogId}`),
-                        $http.get(`data/blogcomments.json?key=${apiData.key}&blogId=${apiData.blogId}`)
-                    ]).then(([postsResponse, commentsResponse]) => {
-                        let postsData = postsResponse ? postsResponse.data : {};
-                        let commentsData = commentsResponse ? commentsResponse.data : {};
-                        let posts = postsData.items || [];
-                        let comments = commentsData.items || [];
-                        
-                        deferred.resolve(this.matchCommentsAndPosts(posts, comments));
+                    return new Promise((resolve, reject) => {
+                        $http.get(blogUrl)
+                            .then((postsResponse) => {
+                                let postsData = postsResponse ? postsResponse.data : {};
+                                let posts = postsData.items || [];
+                                
+                                resolve(posts);
+                            });
                     });
                     
-                    return deferred.promise;
+                    // let deferred = $q.defer();
+                    
+                    //Keeping this in case we ever implement the blog into the website
+                    // $q.all([
+                    //     $http.get(`data/blogposts.json?key=${apiData.key}&blogId=${apiData.blogId}`),
+                    //     $http.get(`data/blogcomments.json?key=${apiData.key}&blogId=${apiData.blogId}`)
+                    // ]).then(([postsResponse, commentsResponse]) => {
+                    //     let postsData = postsResponse ? postsResponse.data : {};
+                    //     let commentsData = commentsResponse ? commentsResponse.data : {};
+                    //     let posts = postsData.items || [];
+                    //     let comments = commentsData.items || [];
+                        
+                    //     deferred.resolve(this.matchCommentsAndPosts(posts, comments));
+                    // });
+                    
+                    // return deferred.promise;
                 }
             }
             

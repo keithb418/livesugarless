@@ -36,6 +36,7 @@
         border-width: 2px 0;
         color: $dark-grey;
         margin-bottom: 10px;
+        padding-bottom: 10px;
         position: relative;
         text-align: center;
         z-index: 2;
@@ -57,6 +58,10 @@
         .home-section-body {
             padding: 10px;
         }
+    }
+    
+    .flex-section {
+        @include flex();
     }
     
     .float-section {
@@ -86,6 +91,37 @@
             padding: 10px;
             text-align: left;
         }
+    }
+    
+    .blog-section {
+        position: relative;
+        
+        h3 {
+            margin-bottom: 5px;
+        }
+        
+        img {
+            @include box-shadow(0px 0px 10px 0px);
+            
+            align-self: flex-start;
+            border: 3px solid #fff;
+            display: inline-block;
+            height: auto;
+            margin-right: 15px;
+            width: 260px;
+        }
+        
+        .right-section {
+            width: calc(100% - 280px);
+        }
+    }
+    
+    .right-section {
+        border-left: 2px solid $border;
+        box-sizing: border-box;
+        display: inline-block;
+        padding-left: 5px;
+        width: calc(100% - 220px);
     }
     
     .learn-more {
