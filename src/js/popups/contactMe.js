@@ -51,7 +51,7 @@ define((require) => {
             ];
             
             let disableAllInputs = () => {
-                angular.element('input, button, textarea').attr('disabled', 'disabled');
+                angular.element('.modal').find('input, button, textarea').attr('disabled', 'disabled');
             };
             
             $scope.send = () => {
