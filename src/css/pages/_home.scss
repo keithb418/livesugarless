@@ -62,6 +62,8 @@
     
     .flex-section {
         @include flex();
+        
+        align-items: center;
     }
     
     .float-section {
@@ -134,6 +136,7 @@
         font-weight: bold;
         padding: 10px;
         text-align: right;
+        width: 150px;
         
         .icon {
             font-size: 25px;
@@ -142,6 +145,32 @@
         
         &:hover {
             color: $secondary;
+        }
+    }
+    
+    .home-icon {
+        @include flex;
+        
+        align-items: center;
+        color: $watermark;
+        font-size: 150px;
+        height: 200px;
+        justify-content: center;
+        opacity: 0.5;
+        position: relative;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+        width: 200px;
+        
+        &.tch-logo:before {
+            @include ellipse(75px, 56px);
+            
+            background-color: #fff;
+            -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+            -moz-box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+            height: 112px;
+            top: 45px;
+            width: 150px;
         }
     }
 }

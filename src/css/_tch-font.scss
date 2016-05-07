@@ -40,4 +40,11 @@
 
 .tch-logo:after {
   content: "\23";
+  z-index: 1;
+}
+
+.tch-logo:before {
+  content: " ";
+  display: block;
+  position: absolute;
 }

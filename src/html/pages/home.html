@@ -2,28 +2,34 @@
     <h2 class="sr-only">Home Page</h2>
     <img class="back-img" resize-img src="assets/images/mountains-1012363_960_720.jpg" alt="background-image" ng-style="updateImg()"/>
     <div class="solid-section">
-        <div class="home-section-body">
-            <h3>Why wait to feel your best?</h3>
-            <p>Imagine right now that you're living your ideal life. How do you feel? What does your career look like? What do you do with your time? Why not do what it takes to reach your ideal life? You're worth it. It's time to take charge!</p>
-            <p class="center">Request a Free Consultation Today!</p>
-            <button class="center free-consultation">Free Consultation</button>
+        <div class="home-section-body flex-section">
+            <span class="home-icon tch-logo" aria-hidden="true"></span>
+            <div class="right-section">
+                <h3>Why wait to feel your best?</h3>
+                <p>Imagine right now that you're living your ideal life. How do you feel? What does your career look like? What do you do with your time? Why not do what it takes to reach your ideal life? You're worth it. It's time to take charge!</p>
+                <p class="center">Request a Free Consultation Today!</p>
+                <button class="center free-consultation">Free Consultation</button>
+            </div>
         </div>
     </div>
     <div class="float-section">
-        <div class="home-section-body">
-            <h3>What is health coaching?</h3>
-            <p>Health Coaching is a lot of great things where someone sits down with you and listens to you and helps to set good health goals and feel better.  Sign up!</p>
-            <a href="#/" class="learn-more">
-                <span>Learn More</span> 
-                <span class="icon fa fa-arrow-circle-right" aria-hidden="true"></span>
-            </a>
+        <div class="home-section-body flex-section">
+            <span class="home-icon fa fa-question-circle-o" aria-hidden="true"></span>
+            <div class="right-section">
+                <h3>What is health coaching?</h3>
+                <p>Health Coaching is a lot of great things where someone sits down with you and listens to you and helps to set good health goals and feel better.  Sign up!</p>
+                <a href="#/" class="learn-more">
+                    <span>Learn More</span> 
+                    <span class="icon fa fa-arrow-circle-right" aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
     </div>
     <div class="solid-section">
         <div class="home-section-body blog-section">
             <h3>Blog Post: {{blogTitle}}</h3>
             <div class="flex-section">
-                <img src="{{blogImg}}" />
+                <img src="{{blogImg}}" alt="blog post image"/>
                 <div class="right-section">
                     <p>{{blogContent}}</p>
                     <a ng-href="{{blogLink}}" class="learn-more">
@@ -34,14 +40,17 @@
             </div>
         </div>
     </div>
-    <div class="scrollme float-section">
-        <div class="home-section-body">
-            <h3>What is health coaching?</h3>
-            <p>Health Coaching is a lot of great things where someone sits down with you and listens to you and helps to set good health goals and feel better.  Sign up!</p>
-            <a href="#/" class="learn-more">
-                <span>Learn More</span> 
-                <span class="icon fa fa-arrow-circle-right" aria-hidden="true"></span>
-            </a>
+    <div class="float-section">
+        <div class="home-section-body flex-section">
+            <span class="home-icon fa fa-trophy" aria-hidden="true"></span>
+            <div class="right-section">
+                <h3>The Happiness Breakthrough Program</h3>
+                <p>Doing this program, you will experience a Happiness Breathrough, and you life will be forever changed and completely improved in every conceivable way, shape, and form!</p>
+                <a href="#/" class="learn-more">
+                    <span>Learn More</span> 
+                    <span class="icon fa fa-arrow-circle-right" aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

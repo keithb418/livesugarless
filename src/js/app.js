@@ -7,7 +7,6 @@ define([
     'angularBootstrapTemplates',
     'angularResource',
     'services/validationServices',
-    'scrollMe',
     'common/header',
     'common/footer',
     'popups/contactMe',

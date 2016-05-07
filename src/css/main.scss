@@ -8,13 +8,13 @@ $fa-font-path: "../assets/fonts/font-awesome";
 @import "bootstrap-mincer";
 @import "bootstrap-sprockets";
 
-@import "font-awesome/font-awesome.scss";
-@import "tch-font";
-
 @import "common/variables";
 @import "common/mixins";
 @import "common/common";
 @import "common/popups";
+
+@import "font-awesome/font-awesome.scss";
+@import "tch-font";
 
 @import "pages/home";
 @import "pages/header";

@@ -55,3 +55,7 @@
     -moz-box-shadow: $box-shadow rgba(0,0,0,0.75);
     box-shadow: $box-shadow rgba(0,0,0,0.75);
 }
+
+@mixin ellipse($top-radius, $side-radius) {
+    @include border-radius(#{$top-radius} / #{$side-radius});
+}

@@ -10,7 +10,6 @@
         "requirejs": "~2.1.22",
         "requirejs-text": "~2.0.14",
         "moment": "~2.11.2",
-        "validator-js": "~5.1.0",
-        "scrollme": "nckprsn/scrollme"
+        "validator-js": "~5.1.0"
     }
 }
