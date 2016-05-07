@@ -8,6 +8,7 @@ define((require) => {
                 $uibModalStack.dismissAll();
                 
                 $uibModal.open({
+                    animation: false,
                     template: template,
                     controller: 'messageCtrl',
                     resolve: {
@@ -33,8 +34,8 @@ define((require) => {
             $scope.closeMessage = $uibModalInstance.close;
             
             let handleTimeout = () => {
-                if (!$scope.timeout) {
-                    $scope.closeMessage();
+                if ($scope.timeout <= 0) {
+                    // $scope.closeMessage();
                 } else {
                     setTimeout(() => {
                         $scope.timeout--;

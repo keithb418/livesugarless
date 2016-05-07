@@ -1,0 +1,29 @@
+.ajax-spinner {
+    @include flex;
+    
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    justify-content: center;
+    z-index: 1051;
+    
+    .ajax-spinner-body {
+        @include border-radius(10px);
+        @include box-shadow(0 0 10px 0);
+        @include flex;
+        
+        align-items: center;
+        background-color: $light-grey;
+        border: 2px solid $border;
+        color: $dark-grey;
+        font-size: 50px;
+        height: 100px;
+        justify-content: center;
+        width: 100px;
+    }
+}

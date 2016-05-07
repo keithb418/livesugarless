@@ -7,6 +7,7 @@ define([
     'angularBootstrapTemplates',
     'angularResource',
     'services/validationServices',
+    'services/spinnerServices',
     'common/header',
     'common/footer',
     'popups/contactMe',
@@ -34,7 +35,8 @@ define([
             'healthHistoryWomen',
             'contact',
             'message',
-            'validation'
+            'validation',
+            'spinnerServices'
         ])
         .config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
             $routeProvider.otherwise({redirectTo: '/'});

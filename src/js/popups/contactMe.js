@@ -16,6 +16,7 @@ define((require) => {
                 $uibModalStack.dismissAll();
                 
                 $uibModal.open({
+                    animation: false,
                     template: template,
                     controller: 'contactMeCtrl'
                 });
