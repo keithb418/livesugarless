@@ -45,6 +45,14 @@
     display: flex;
 }
 
+@mixin flex-important {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+}
+
 @mixin align-items($align) {
     -webkit-align-items: $align;
     align-items: $align;

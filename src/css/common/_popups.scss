@@ -65,6 +65,15 @@
     }
 }
 
+.message-modal {
+    .modal {
+        @include flex-important;
+        
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 .modal-body {
     color: #000;
 }

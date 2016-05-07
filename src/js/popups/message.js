@@ -11,12 +11,15 @@ define((require) => {
                     animation: false,
                     template: template,
                     controller: 'messageCtrl',
+                    openedClass: 'message-modal',
                     resolve: {
                         messageOpts: () => {
                             return messageOpts;
                         }
                     }
                 });
+                
+                angular.element('.modal');
             }
         })
         .controller('messageCtrl', ($scope, $uibModalInstance, messageOpts) => {
@@ -35,7 +38,7 @@ define((require) => {
             
             let handleTimeout = () => {
                 if ($scope.timeout <= 0) {
-                    // $scope.closeMessage();
+                    $scope.closeMessage();
                 } else {
                     setTimeout(() => {
                         $scope.timeout--;
