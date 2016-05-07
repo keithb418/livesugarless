@@ -62,7 +62,7 @@
     .flex-section {
         @include flex();
         
-        align-items: center;
+        align-items: stretch;
     }
     
     .float-section {
