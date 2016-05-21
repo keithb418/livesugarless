@@ -23,14 +23,12 @@
     <div class="form-group first-name">
         <p class="form-error" ng-if="errors.firstName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.firstName}}</p>
         <label for="first-name">* First Name</label>
-        <input required type="text" id="first-name" ng-class="{invalid: errors.firstName}" class="form-control" ng-model="health.firstName"
-        maxlength="15" />
+        <input required type="text" id="first-name" ng-class="{invalid: errors.firstName}" class="form-control" ng-model="health.firstName" maxlength="15" />
     </div>
     <div class="form-group last-name">
         <p class="form-error" ng-if="errors.lastName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.lastName}}</p>
         <label for="last-name">* Last Name</label>
-        <input required type="text" id="last-name" ng-class="{invalid: errors.lastName}" class="form-control" ng-model="health.lastName"
-        maxlength="15" />
+        <input required type="text" id="last-name" ng-class="{invalid: errors.lastName}" class="form-control" ng-model="health.lastName" maxlength="15" />
     </div>
     <div class="form-inline">
         <div class="form-group">
@@ -152,6 +150,338 @@
         </fieldset>
     </div>
     <h3>Social Information</h3>
+    <fieldset>
+        <legend>Relationship Status</legend>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.relStatus = 'single'">
+                <input type="radio" id="rel-status-single" ng-model="health.relStatus" value="single" />
+            </span>
+            <label for="rel-status-single" class="form-control">Single</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.relStatus = 'married'">
+                <input type="radio" id="rel-status-married" ng-model="health.relStatus" value="married" />
+            </span>
+            <label for="rel-status-married" class="form-control">Married</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.relStatus = 'divorced'">
+                <input type="radio" id="rel-status-divorced" ng-model="health.relStatus" value="divorced" />
+            </span>
+            <label for="rel-status-divorced" class="form-control">Divorced</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.relStatus = 'widowed'">
+                <input type="radio" id="rel-status-widowed" ng-model="health.relStatus" value="widowed" />
+            </span>
+            <label for="rel-status-widowed" class="form-control">Widowed</label>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label for="num-kids" aria-label="Number of Children">No. of Children:</label>
+        <div class="input-group">
+            <input type="number" ng-change="restrictTo(2, health.numKids, 'numKids')" id="num-kids" class="form-control" ng-model="health.numKids" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="num-pets" aria-label="Number of Pets">No. of Pets:</label>
+        <div class="input-group">
+            <input type="number" ng-change="restrictTo(2, health.numPets, 'numPets')" id="num-pets" class="form-control" ng-model="health.numPets" />
+        </div>
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.occupation"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.occupation}}</p>
+        <label for="occupation">Occupation</label>
+        <input type="text" id="occupation" ng-class="{invalid: errors.occupation}" class="form-control" ng-model="health.occupation" maxlength="20" />
+    </div>
+    <div class="form-group">
+        <label for="work-hours">Hours of Work per Week</label>
+        <div class="input-group">
+            <input type="number" ng-change="restrictTo(2, health.workHours, 'workHours')" id="work-hours" class="form-control" ng-model="health.workHours" />
+        </div>
+    </div>
+    <h3>Health Information</h3>
+    <div class="form-group">
+        <label for="health-concerns">Please list your main health concerns:</label>
+        <p class="form-error" ng-if="errors.healthConcerns"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.healthConcerns}}</p>
+        <textarea id="health-concerns" class="form-control" ng-class="{invalid: errors.healthConcerns}" ng-model="health.healthConcerns"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="other-concerns">Other concerns and/or goals:</label>
+        <p class="form-error" ng-if="errors.otherConcerns"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.otherConcerns}}</p>
+        <textarea id="other-concerns" class="form-control" ng-class="{invalid: errors.otherConcerns}" ng-model="health.otherConcerns"></textarea>
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.feelBest"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.feelBest}}</p>
+        <label for="feel-best">At what point in your life did you feel best?</label>
+        <input type="text" id="feel-best" ng-class="{invalid: errors.feelBest}" class="form-control" ng-model="health.feelBest" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <label for="illnesses">Any serious illnesses/hospitalizations/injuries?</label>
+        <p class="form-error" ng-if="errors.illnesses"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.illnesses}}</p>
+        <textarea id="illnesses" class="form-control" ng-class="{invalid: errors.illnesses}" ng-model="health.illnesses"></textarea>
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.healthMother"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.healthMother}}</p>
+        <label for="health-mother">How is/was the health of your mother?</label>
+        <input type="text" id="health-mother" ng-class="{invalid: errors.healthMother}" class="form-control" ng-model="health.healthMother" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.healthFather"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.healthFather}}</p>
+        <label for="health-father">How is/was the health of your father?</label>
+        <input type="text" id="health-father" ng-class="{invalid: errors.healthFather}" class="form-control" ng-model="health.healthFather" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.ancestry"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.ancestry}}</p>
+        <label for="ancestry">What is your ancestry?</label>
+        <input type="text" id="ancestry" ng-class="{invalid: errors.ancestry}" class="form-control" ng-model="health.ancestry" maxlength="20" />
+    </div>
+    <fieldset>
+        <legend>What blood type are you?</legend>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'O+'">
+                <input type="radio" id="blood-type-o-plus" ng-model="health.bloodType" value="O+" />
+            </span>
+            <label for="blood-type-o-plus" class="form-control">O+</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'O-'">
+                <input type="radio" id="blood-type-o-neg" ng-model="health.bloodType" value="O-" />
+            </span>
+            <label for="blood-type-o-neg" class="form-control">O-</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'A+'">
+                <input type="radio" id="blood-type-a-plus" ng-model="health.bloodType" value="A+" />
+            </span>
+            <label for="blood-type-a-plus" class="form-control">A+</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'A-'">
+                <input type="radio" id="blood-type-a-neg" ng-model="health.bloodType" value="A-" />
+            </span>
+            <label for="blood-type-a-neg" class="form-control">A-</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'B+'">
+                <input type="radio" id="blood-type-b-plus" ng-model="health.bloodType" value="B+" />
+            </span>
+            <label for="blood-type-b-plus" class="form-control">B+</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'B-'">
+                <input type="radio" id="blood-type-b-neg" ng-model="health.bloodType" value="B-" />
+            </span>
+            <label for="blood-type-b-neg" class="form-control">B-</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'AB+'">
+                <input type="radio" id="blood-type-ab-plus" ng-model="health.bloodType" value="AB+" />
+            </span>
+            <label for="blood-type-ab-plus" class="form-control">AB+</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.bloodType = 'AB-'">
+                <input type="radio" id="blood-type-ab-neg" ng-model="health.bloodType" value="AB-" />
+            </span>
+            <label for="blood-type-ab-neg" class="form-control">AB-</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>How is your sleep?</legend>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.sleep = 'poor'">
+                <input type="radio" id="sleep-poor" ng-model="health.sleep" value="poor" />
+            </span>
+            <label for="sleep-poor" class="form-control">Poor</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.sleep = 'good'">
+                <input type="radio" id="sleep-good" ng-model="health.sleep" value="good" />
+            </span>
+            <label for="sleep-good" class="form-control">Good</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.sleep = 'great'">
+                <input type="radio" id="sleep-great" ng-model="health.sleep" value="great" />
+            </span>
+            <label for="sleep-great" class="form-control">Great</label>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label for="sleep-hours">How many hours do you sleep?</label>
+        <div class="input-group">
+            <input type="number" ng-change="restrictTo(2, health.sleepHours, 'sleepHours')" id="sleep-hours" class="form-control" ng-model="health.sleepHours" />
+        </div>
+    </div>
+    <fieldset>
+        <legend>Do you wake up at night?</legend>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.sleepWake = 'yes'">
+                <input type="radio" id="sleep-wake-yes" ng-model="health.sleepWake" value="yes" />
+            </span>
+            <label for="sleep-wake-yes" class="form-control">Yes</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.sleepWake = 'no'">
+                <input type="radio" id="sleep-wake-no" ng-model="health.sleepWake" value="no" />
+            </span>
+            <label for="sleep-wake-no" class="form-control">No</label>
+        </div>
+    </fieldset>
+    <div class="form-group" ng-if="health.sleepWake === 'yes'">
+        <p class="form-error" ng-if="errors.whyWake"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.whyWake}}</p>
+        <label for="whyWake" aria-label="Why do you wake up at night?">Why?</label>
+        <input type="text" id="whyWake" ng-class="{invalid: errors.whyWake}" class="form-control" ng-model="health.whyWake" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.pain"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.pain}}</p>
+        <label for="pain">Any pain, stiffness, or swelling?</label>
+        <input type="text" id="pain" ng-class="{invalid: errors.pain}" class="form-control" ng-model="health.pain" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.gas"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.gas}}</p>
+        <label for="gas">Constipation/Diarrhea/Gas?</label>
+        <input type="text" id="gas" ng-class="{invalid: errors.gas}" class="form-control" ng-model="health.gas" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.allergies"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.allergies}}</p>
+        <label for="allergies">Allergies or sensitivies? Please explain:</label>
+        <input type="text" id="allergies" ng-class="{invalid: errors.allergies}" class="form-control" ng-model="health.allergies" maxlength="30" />
+    </div>
+    <h3>Health Information</h3>
+    <div class="form-group">
+        <label for="meds">Do you take any supplements or medications? Please list:</label>
+        <p class="form-error" ng-if="errors.meds"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.meds}}</p>
+        <textarea id="meds" class="form-control" ng-class="{invalid: errors.meds}" ng-model="health.meds"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="therapies">Any healers, helpers, or therapies with which you are involved? Please list:</label>
+        <p class="form-error" ng-if="errors.therapies"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.therapies}}</p>
+        <textarea id="therapies" class="form-control" ng-class="{invalid: errors.therapies}" ng-model="health.therapies"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exercise">What role do sports and exercise play in your life?</label>
+        <p class="form-error" ng-if="errors.exercise"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.exercise}}</p>
+        <textarea id="exercise" class="form-control" ng-class="{invalid: errors.exercise}" ng-model="health.exercise"></textarea>
+    </div>
+    <h3>Food Information</h3>
+    <h4 class="group-heading" aria-hidden="true">What foods did you eat often as a child?</h4>
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="kid-breakfast" aria-label="What did you eat as a child for breakfast?">Breakfast</label>
+            <p class="form-error" ng-if="errors.kidBreakfast"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.kidBreakfast}}</p>
+            <textarea id="kid-breakfast" class="form-control" ng-class="{invalid: errors.kidBreakfast}" ng-model="health.kidBreakfast"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="kid-lunch" aria-label="What did you eat as a child for lunch?">Lunch</label>
+            <p class="form-error" ng-if="errors.kidLunch"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.kidLunch}}</p>
+            <textarea id="kid-lunch" class="form-control" ng-class="{invalid: errors.kidLunch}" ng-model="health.kidLunch"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="kid-dinner" aria-label="What did you eat as a child for dinner?">Dinner</label>
+            <p class="form-error" ng-if="errors.kidDinner"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.kidDinner}}</p>
+            <textarea id="kid-dinner" class="form-control" ng-class="{invalid: errors.kidDinner}" ng-model="health.kidDinner"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="kid-snacks" aria-label="What did you eat as a child for snacks?">Snacks</label>
+            <p class="form-error" ng-if="errors.kidSnacks"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.kidSnacks}}</p>
+            <textarea id="kid-snacks" class="form-control" ng-class="{invalid: errors.kidSnacks}" ng-model="health.kidSnacks"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="kid-liquids" aria-label="What liquids did you drink as a child?">Liquids</label>
+            <p class="form-error" ng-if="errors.kidLiquids"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.kidLiquids}}</p>
+            <textarea id="kid-liquids" class="form-control" ng-class="{invalid: errors.kidLiquids}" ng-model="health.kidLiquids"></textarea>
+        </div>
+    </div>
+    <h4 class="group-heading" aria-hidden="true">What is your food like these days?</h4>
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="now-breakfast" aria-label="What do you now eat for breakfast?">Breakfast</label>
+            <p class="form-error" ng-if="errors.nowBreakfast"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nowBreakfast}}</p>
+            <textarea id="now-breakfast" class="form-control" ng-class="{invalid: errors.nowBreakfast}" ng-model="health.nowBreakfast"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="now-lunch" aria-label="What do you eat now for lunch?">Lunch</label>
+            <p class="form-error" ng-if="errors.nowLunch"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nowLunch}}</p>
+            <textarea id="now-lunch" class="form-control" ng-class="{invalid: errors.nowLunch}" ng-model="health.nowLunch"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="now-dinner" aria-label="What do you eat now for dinner?">Dinner</label>
+            <p class="form-error" ng-if="errors.nowDinner"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nowDinner}}</p>
+            <textarea id="now-dinner" class="form-control" ng-class="{invalid: errors.nowDinner}" ng-model="health.nowDinner"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="now-snacks" aria-label="What do you eat now for snacks?">Snacks</label>
+            <p class="form-error" ng-if="errors.nowSnacks"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nowSnacks}}</p>
+            <textarea id="now-snacks" class="form-control" ng-class="{invalid: errors.nowSnacks}" ng-model="health.nowSnacks"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="now-liquids" aria-label="What liquids do you drink now?">Liquids</label>
+            <p class="form-error" ng-if="errors.nowLiquids"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nowLiquids}}</p>
+            <textarea id="now-liquids" class="form-control" ng-class="{invalid: errors.nowLiquids}" ng-model="health.nowLiquids"></textarea>
+        </div>
+    </div>
+    <fieldset>
+        <legend>Will family and/or friends be supportive of your desire to make food and/or lifestyle changes?</legend>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.supportive = 'yes'">
+                <input type="radio" id="supportive-yes" ng-model="health.supportive" value="yes" />
+            </span>
+            <label for="supportive-yes" class="form-control">Yes</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" ng-click="health.supportive = 'no'">
+                <input type="radio" id="supportive-no" ng-model="health.supportive" value="no" />
+            </span>
+            <label for="supportive-no" class="form-control">No</label>
+        </div>
+    </fieldset>
+    <div class="form-inline">
+        <fieldset>
+            <legend>Do you cook?</legend>
+            <div class="input-group">
+                <span class="input-group-addon" ng-click="health.cook = 'yes'">
+                    <input type="radio" id="cook-yes" ng-model="health.cook" value="yes" />
+                </span>
+                <label for="cook-yes" class="form-control">Yes</label>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" ng-click="health.cook = 'no'">
+                    <input type="radio" id="cook-no" ng-model="health.cook" value="no" />
+                </span>
+                <label for="cook-no" class="form-control">No</label>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label for="home-cook">What percentage of your food is home-cooked?</label>
+            <div class="input-group">
+                <input type="number" ng-change="restrictTo(3, health.homeCook, 'homeCook')" id="home-cook" class="form-control" ng-model="health.homeCook" />
+                <span class="input-group-addon" aria-hidden="true">%</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <p class="form-error" ng-if="errors.restFood"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.restFood}}</p>
+        <label for="rest-food">Where do you get the rest from?</label>
+        <input type="text" id="rest-food" ng-class="{invalid: errors.restFood}" class="form-control" ng-model="health.restFood" maxlength="30" />
+    </div>
+    <div class="form-group">
+        <label for="crave">Do you crave sugar, coffee, cigarettes, or have any major addictions?</label>
+        <p class="form-error" ng-if="errors.crave"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.crave}}</p>
+        <textarea id="crave" class="form-control" ng-class="{invalid: errors.crave}" ng-model="health.crave"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="now-liquids">Liquids</label>
+        <p class="form-error" ng-if="errors.nowLiquids"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.nowLiquids}}</p>
+        <textarea id="now-liquids" class="form-control" ng-class="{invalid: errors.nowLiquids}" ng-model="health.nowLiquids"></textarea>
+    </div>
+    <h3>Additional Comments</h3>
+    <div class="form-group">
+        <label for="improve">The most important thing I should do to improve my health is:</label>
+        <p class="form-error" ng-if="errors.improve"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.improve}}</p>
+        <textarea id="improve" class="form-control" ng-class="{invalid: errors.improve}" ng-model="health.improve"></textarea>
+    </div>
 </form>
 <button ng-if="!submitted" type="button" id="submit" ng-click="submit()">Submit</button>
 <p>&copy; Integrative Nutrition</p>
