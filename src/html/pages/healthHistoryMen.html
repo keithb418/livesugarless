@@ -482,6 +482,7 @@
         <p class="form-error" ng-if="errors.improve"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.improve}}</p>
         <textarea id="improve" class="form-control" ng-class="{invalid: errors.improve}" ng-model="health.improve"></textarea>
     </div>
+    <div class="g-recaptcha" data-sitekey="6LdBayETAAAAAHlYJH_U8iwf9yO4J8rIxVaIFJ1f"></div>
 </form>
 <button ng-if="!submitted" type="button" id="submit" ng-click="submit()">Submit</button>
 <p>&copy; Integrative Nutrition</p>
