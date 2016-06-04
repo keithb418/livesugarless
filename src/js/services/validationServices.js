@@ -39,6 +39,14 @@ define((require) => {
             return (values, config) => {
                 let errors;
                 
+                if (typeof values.captcha !== undefined) {
+                    let success = grecaptcha.getResponse(values.captcha);
+                    
+                    if (!success) {
+                        errors = {captcha: 'Please complete the reCAPTCHA to continue.'};
+                    }
+                }
+                
                 config.map((item) => {
                     let {name, type, required} = item;
                     let value = values[name];
@@ -47,12 +55,12 @@ define((require) => {
                         if (required) {
                             errors = errors || {};
                             
-                            errors[name] = "This field is required.";
+                            errors[name] = 'This field is required.';
                         }
                     } else if (type) {
                         let response = formValidators[type](value);
                         
-                        if (type === "text") {
+                        if (type === 'text') {
                             values[name] = response;
                         } else if (response) {
                             errors = errors || {};

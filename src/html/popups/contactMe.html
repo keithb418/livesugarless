@@ -9,7 +9,7 @@
     <p>Please fill out the form below to send me an email. I'll get back to you within 2-3 business days. Thanks!</p>
     <p class="form-required">* All fields are required</p>
     <p class="form-error" ng-if="errors"><span class="fa fa-warning" aria-hidden="true"></span> Please correct the errors below:</p>
-    <form class=".contact-me-form">
+    <form class=".contact-me-form" ng-submit="send()">
         <div class="form-group">
             <label for="contact-name">Name</label>
             <p class="form-error" ng-if="errors.name"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.name}}</p>
@@ -30,6 +30,8 @@
             <p class="form-error" ng-if="errors.message"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.message}}</p>
             <textarea id="contact-message" class="form-control" ng-class="{invalid: errors.message}" ng-model="contact.message"></textarea>
         </div>
+        <p class="form-error" ng-if="errors.captcha"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.captcha}}</p>
+        <div class="g-recaptcha" ng-attr-id="{{captchaId}}"></div>
     </form>
 </div>
 <div class="modal-footer">
