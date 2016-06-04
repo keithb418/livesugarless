@@ -87,6 +87,8 @@
         <label for="comments">Comments</label>
         <textarea required id="comments" ng-class="{invalid: errors.comments}" class="form-control" ng-model="consult.comments"></textarea>
     </div>
+    <p class="form-error" ng-if="errors.captcha"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.captcha}}</p>
+    <div class="g-recaptcha" ng-attr-id="{{captchaId}}"></div>
 </form>
 <button ng-if="!submitted" type="button" id="submit" ng-click="submit()">Submit</button>
 <div ng-if="submitted">

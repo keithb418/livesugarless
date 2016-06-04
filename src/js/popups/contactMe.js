@@ -7,39 +7,39 @@ define((require) => {
 
     class ContactMe {
         constructor($window, $http, $uibModal, $uibModalStack, validateForm, showMessage) {
-            this.$window = $window;
-            this.$http = $http;
-            this.$uibModal = $uibModal;
-            this.$uibModalStack = $uibModalStack;
-            this.validateForm = validateForm;
-            this.showMessage = showMessage;
-            this.formConfig = [
-                {
-                    name: 'name',
-                    type: 'textSpace',
-                    required: true
-                },
-                {
-                    name: 'email',
-                    type: 'email',
-                    required: true
-                },
-                {
-                    name: 'subject',
-                    type: 'text',
-                    required: true
-                },
-                {
-                    name: 'message',
-                    type: 'text',
-                    required: true
-                }
-            ];
-            this.captchaId = 'contact-captcha';
-            
-            //Binding the methods so they use the correct lexical this
-            this.openContact = this.openContact.bind(this);
-            this.send = this.send.bind(this);
+            angular.extend(this, {
+                $window,
+                $http,
+                $uibModal,
+                $uibModalStack,
+                validateForm,
+                showMessage,
+                formConfig: [
+                    {
+                        name: 'name',
+                        type: 'textSpace',
+                        required: true
+                    },
+                    {
+                        name: 'email',
+                        type: 'email',
+                        required: true
+                    },
+                    {
+                        name: 'subject',
+                        type: 'text',
+                        required: true
+                    },
+                    {
+                        name: 'message',
+                        type: 'text',
+                        required: true
+                    }
+                ],
+                captchaId: 'free-consult-captcha',
+                openContact: this.openContact.bind(this),
+                send: this.send.bind(this)
+            });
         }
 
         disableAllInputs() {
@@ -110,14 +110,13 @@ define((require) => {
             $scope.openContact = contactMeSrv.openContact;
         })
         .controller('contactMeCtrl', ($scope, $uibModalInstance, contactMeSrv) => {
-            $scope.captchaId = contactMeSrv.captchaId;
-            
-            $scope.contact = {};
-
-            $scope.closeContact = $uibModalInstance.close;
-
-            $scope.send = () => {
-                $scope.errors = contactMeSrv.send($scope.contact);
-            };
+            angular.extend($scope, {
+                captchaId: contactMeSrv.captchaId,
+                contact: {},
+                closeContact: $uibModalInstance.close,
+                send: () => {
+                    $scope.errors = contactMeSrv.send($scope.contact);
+                }
+            });
         });
 });
