@@ -99,13 +99,13 @@ define((require) => {
                     action1: {
                         text: "Men's Health History",
                         action: () => {
-                            $location.path('/health-history-men');
+                            this.$location.path('/health-history-men');
                         }
                     },
                     action2: {
                         text: "Women's Health History",
                         action: () => {
-                            $location.path('/health-history-women');
+                            this.$location.path('/health-history-women');
                         }
                     },
                     icon: 'fa-check'
