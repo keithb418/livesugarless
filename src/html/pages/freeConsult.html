@@ -43,7 +43,7 @@
         <input required type="text" id="phone" ng-class="{invalid: errors.phone}" class="form-control" ng-model="consult.phone" />
     </div>
     <fieldset class="availability">
-        <legend>* Your Availability</legend>
+        <legend>* Your Availability <span class="sr-only">required field</span></legend>
         <p class="form-error" ng-if="errors.availability"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.availability}}</p>
         <div class="col-xs-2 time-of-day">
             <p aria-hidden="true">9am-12pm</p>

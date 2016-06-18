@@ -1,43 +1,136 @@
 define((require) => {
     let angular = require('angular');
     let angularRoute = require('angularRoute');
+    let FormHandler = require('common/formHandler');
     let template = require('text!html/pages/healthHistoryMen.html');
     let apiKeyJSON = require('text!data/api_key.json');
     let apiData = JSON.parse(apiKeyJSON);
 
-    class HealthHistoryMen {
+    class HealthHistoryMen extends FormHandler {
         constructor ($window, $http, $location, validateForm, showMessage) {
-            angular.extend(this, {
+            super({
                 $window,
                 $http,
                 $location,
                 validateForm,
-                showMessage,
-                captchaId: 'health-history-men-captcha',
-                restrictTo: this.restrictTo.bind(this)
-            });
+                showMessage
+            }, 'health-history-men-captcha');
         }
-
-        showCaptcha() {
-            let width = angular.element(this.$window).outerWidth();
-            let size = width < 370 ? 'compact' : 'normal';
-
-            this.captcha = grecaptcha.render(this.captchaId, {
-                'sitekey': apiData.captchaKey,
-                size
+        
+        submit(form = {}) {
+            return super.submit(form,'http://localhost:8081/health-history-men', [
+                {
+                    name: 'firstName',
+                    type: 'textStrict',
+                    required: true
+                },
+                {
+                    name: 'lastName',
+                    type: 'textStrict',
+                    required: true
+                },
+                {
+                    name: 'email',
+                    type: 'email',
+                    required: true
+                },
+                {
+                    name: 'emailFreq',
+                    type: 'textSpace'
+                },
+                {
+                    name: 'homePhone',
+                    type: 'phone'
+                },
+                {
+                    name: 'workPhone',
+                    type: 'phone'
+                },
+                {
+                    name: 'mobilePhone',
+                    type: 'phone'
+                },
+                {
+                    name: 'heightFeet',
+                    type: 'number'
+                },
+                {
+                    name: 'heightInches',
+                    type: 'number'
+                },
+                {
+                    name: 'birthdate',
+                    type: 'date'
+                },
+                {
+                    name: 'currWeight',
+                    type: 'number'
+                },
+                {
+                    name: 'sixMonthWeight',
+                    type: 'number'
+                },
+                {
+                    name: 'yearWeight',
+                    type: 'number'
+                },
+                {
+                    name: 'numKids',
+                    type: 'number'
+                },
+                {
+                    name: 'numPets',
+                    type: 'number'
+                },
+                {
+                    name: 'occupation',
+                    type: 'textSpace'
+                },
+                {
+                    name: 'workHours',
+                    type: 'number'
+                },
+                {
+                    name: 'healthConcerns',
+                    type: 'text'
+                },
+                {
+                    name: 'otherConcerns',
+                    type: 'text'
+                },
+                {
+                    name: 'feelBest',
+                    type: 'text'
+                }, 
+                {
+                    name: 'illnesses',
+                    type: 'text'
+                },
+                {
+                    name: 'healthMother',
+                    type: 'text'
+                },
+                {
+                    name: 'healthFather',
+                    type: 'text'
+                },
+                {
+                    name: 'ancestry',
+                    type: 'textSpace'
+                },
+                {
+                    name: 'sleepHours',
+                    type: 'number'
+                },
+                {
+                    name: 'sleepWake',
+                    type: 'text'
+                }
+            ],
+            {
+                title: 'Health History Submitted',
+                message: 'Thank you for filling out the Health History form!  I look forward to meeting with you!'
             });
-        }
-
-        restrictTo(maxLength, value = '') {
-            value = `${value}`;
-
-            if (value.length > maxLength) {
-                value = value.substr(0, maxLength);
-            } else if (value[value.length - 1] === ".") {
-                value = value.substr(0, value.length - 1);
-            }
-
-            return parseInt(value);
         }
     }
 
@@ -48,11 +141,11 @@ define((require) => {
                 controller: 'healthHistoryMenCtrl'
             });
         }])
-        .service('healthHistoryMenSrv', HealthHistoryMen)
+        .service('healthHistoryMen', HealthHistoryMen)
         .controller('collapseCtrl', ($scope) => {
             $scope.isCollapsed = true;
         })
-        .controller('healthHistoryMenCtrl', ($scope, $timeout, healthHistoryMenSrv) => {
+        .controller('healthHistoryMenCtrl', ($scope, $timeout, healthHistoryMen) => {
             angular.extend($scope, {
                 captchaId: healthHistoryMenSrv.captchaId,
                 datepickerOpen: false,
@@ -65,12 +158,15 @@ define((require) => {
                 restrictTo: (maxlength, field) => {
                     let value = $scope.health[field];
 
-                    $scope.health[field] = healthHistoryMenSrv.restrictTo(maxlength, value);
+                    $scope.health[field] = healthHistoryMen.restrictTo(maxlength, value);
+                },
+                submit: () => {
+                    $scope.errors = healthHistoryMen.submit($scope.health);
                 }
             });
 
             $timeout(() => {
-                healthHistoryMenSrv.showCaptcha();
+                healthHistoryMen.showCaptcha();
             }, 0, false);
         });
 });
