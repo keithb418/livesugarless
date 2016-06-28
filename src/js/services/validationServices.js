@@ -7,7 +7,7 @@ define((require) => {
             return validator.blacklist(text, '\<\>\\\&\;');
         }
         textSpace (text) {
-            return validator.matches(text, /^[\w\s\.\-]+$/g) ? 
+            return validator.matches(text, /^[A-Za-z\s\.\-]+$/g) ? 
                 false :
                 'Please enter only letters, spaces, dashes, or a period.';
         }

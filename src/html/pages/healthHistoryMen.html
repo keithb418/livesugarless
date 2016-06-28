@@ -37,6 +37,7 @@
             <input required type="email" id="email" ng-class="{invalid: errors.email}" class="form-control" ng-model="health.email" />
         </div>
         <div class="form-group">
+            <p class="form-error" ng-if="errors.emailFreq"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.emailFreq}}</p>
             <label for="email-freq">How often do you check email?</label>
             <input type="text" id="email-freq" class="form-control" ng-model="health.emailFreq" />
         </div>
@@ -78,10 +79,9 @@
             </div>
         </div>
         <div class="form-group">
-            <p class="form-error" ng-if="errors.birthdate"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.birthdate}}</p>
             <label for="birthdate">Birthdate <span class="format">MM/DD/YYYY</span></label>
             <div class="input-group">
-                <input type="tel" id="birthdate" uib-datepicker-popup="MM/dd/yyyy" is-open="datepickerOpen" ng-class="{invalid: errors.birthdate}" class="form-control" datepicker-options="dateOptions" ng-model="health.birthdate" close-text="Close"/>
+                <input type="tel" id="birthdate" uib-datepicker-popup="MM/dd/yyyy" is-open="datepickerOpen" ng-class="{invalid: errors.birthdate}" class="form-control" datepicker-options="dateOptions" ng-model="health.birthdate" close-text="Close" readonly ng-click="datepickerOpen = true" ng-focus="datepickerOpen = true" />
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="datepickerOpen = true"><i class="fa fa-calendar"></i></button>
                 </span>
