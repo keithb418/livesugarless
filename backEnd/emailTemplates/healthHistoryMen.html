@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Men's Health History Form</title>
+    </head>
+    <body>    
+        <h1>Men's Health History</h1>
+        <div class="iin-logo">
+            <!--<img src="localhost:8080/takechargehealth/assets/images/IIN_logo.jpg" alt="Institute for Integrative Nutrition Logo" />-->
+        </div>
+        <div class="health-history">
+            <h2>Personal Information</h2>
+            <div class="form-group first-name">
+                <span class="form-label">First Name</span>
+                <span class="form-value">{{firstName}}</span>
+            </div>
+            <div class="form-group last-name">
+                <span class="form-label">Last Name</span>
+                <span class="form-value">{{lastName}}</span>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Email</span>
+                    <span class="form-value">{{email}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">How often do you check email?</span>
+                    <span class="form-value">{{emailFreq}}</span>
+                </div>
+            </div>
+            <h3 class="label">Phone</h3>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Home</span>
+                    <span class="form-value">{{homePhone}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Work</span>
+                    <span class="form-value">{{workPhone}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Mobile</span>
+                    <span class="form-value">{{cellPhone}}</span>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Birthdate</span>
+                    <span class="form-value">{{birthdate}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Place of Birth</span>
+                    <span class="form-value">{{birthplace}}</span>
+                </div>
+                <div class="grouped-inputs">
+                    <div class="form-label">Height</div>
+                    <div class="form-group">
+                        <span class="form-value">{{heightFeet}}</span>
+                        <span class="form-append">ft.</span>
+                    </div>
+                    <div class="form-group">
+                        <span class="form-value">{{heightInches}}</span>
+                        <span class="form-append">in.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Current Weight</span>
+                    <span class="form-value">{{currWeight}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Weight Six Months Ago</span>
+                    <span class="form-value">{{sixMonthWeight}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">One Year Ago</span>
+                    <span class="form-value">{{yearWeight}}</span>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Would you like your weight to be different?</span>
+                    <span class="form-value">{{weightDiff}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">If so, what?</span>
+                    <span class="form-value">{{weightDiffWhat}}</span>
+                </div>
+            </div>
+            <h2>Social Information</h2>
+            <div class="form-group">
+                <span class="form-label">Relationship Status</span>
+                <span class="form-value">{{relStatus}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">No. of Children:</span>
+                <span class="form-value">{{numKids}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">No. of Pets:</span>
+                <span class="form-value">{{numPets}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Occupation</span>
+                <span class="form-value">{{occupation}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Hours of Work per Week</span>
+                <span class="form-value">{{workHours}}</span>
+            </div>
+            <h2>Health Information</h2>
+            <div class="form-group">
+                <span class="form-label">Please list you main health concerns:</span>
+                <span class="form-value">{{healthConcerns}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Other concerns and/or goals:</span>
+                <span class="form-value">{{otherConcerns}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">At what point in your life did you feel best?</span>
+                <span class="form-value">{{feelBest}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Any serious illnesses/hospitalizations/injuries?</span>
+                <span class="form-value">{{illnesses}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">How is/was the health of your mother?</span>
+                <span class="form-value">{{healthMother}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">How is/was the health of your father?</span>
+                <span class="form-value">{{healthFather}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">What is your ancestry?</span>
+                <span class="form-value">{{ancestry}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">What blood type are you?</span>
+                <span class="form-value">{{bloodType}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">How is your sleep?</span>
+                <span class="form-value">{{sleep}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">How many hours do you sleep?</span>
+                <span class="form-value">{{sleepHours}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Do you wake up at night?</span>
+                <span class="form-value">{{sleepWake}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">If so, why?</span>
+                <span class="form-value">{{whyWake}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Any pain, stiffness, or swelling?</span>
+                <span class="form-value">{{pain}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Constipation/Diarrhea/Gas?</span>
+                <span class="form-value">{{gas}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Allergies or sensitivities? Please explain:</span>
+                <span class="form-value">{{allergies}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Do you take any supplements or medications? Please list:</span>
+                <span class="form-value">{{meds}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Any healers, helpers, or therapies with which you are involved? Please list:</span>
+                <span class="form-value">{{therapies}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">What role do sports and exercise play in your life?</span>
+                <span class="form-value">{{exercise}}</span>
+            </div>
+            <h2>Food Information</h2>
+            <h3 class="group-heading">What do you typically eat?</h3>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Breakfast</span>
+                    <span class="form-value">{{breakfast}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Lunch</span>
+                    <span class="form-value">{{lunch}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Dinner</span>
+                    <span class="form-value">{{dinner}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Snacks</span>
+                    <span class="form-value">{{snacks}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Liquids</span>
+                    <span class="form-value">{{liquids}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Will your family and/or friends be supportive of your desire to make food and/or lifestyle changes?</span>
+                <span class="form-value">{{supportive}}</span>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <span class="form-label">Do you cook?</span>
+                    <span class="form-value">{{cook}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">What percentage of your food is home-cooked?</span>
+                    <span class="form-value">{{homeCook}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Where do you get the rest from?</span>
+                <span class="form-value">{{restFood}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Do you crave sugar, coffee, cigarettes, or have any major addictions?</span>
+                <span class="form-value">{{crave}}</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label">The most important thing I should do to improve my health is:</span>
+                <span class="form-value">{{improve}}</span>
+            </div>
+            <h2>Additional Comments</h2>
+            <div class="form-group">
+                <span class="form-label">Anything else you'd like to share?</span>
+                <span class="form-value">{{comments}}</span>
+            </div>
+        </div>
+        <p>&copy; Integrative Nutrition</p>
+    </body>
+</html>

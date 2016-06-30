@@ -1,6 +1,6 @@
 var nodemailer = require('nodemailer');
 var fs = require('fs');
-var data = fs.readFileSync('./BackEnd/gmailAuth.json', 'utf-8');
+var data = fs.readFileSync('./backEnd/gmailAuth.json', 'utf-8');
 data = JSON.parse(data);
 
 var generator = require('xoauth2').createXOAuth2Generator({

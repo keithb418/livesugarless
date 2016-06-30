@@ -26,8 +26,8 @@ define((require) => {
                 false :
                 'Please enter a valid email: example@example.com';
         }
-        numberField (numberInput) {
-            return validator.isNumeric(numberInput) ? 
+        number (numberInput) {
+            return validator.isNumeric(String(numberInput)) ? 
                 false :
                 'Please enter only numbers';
         }

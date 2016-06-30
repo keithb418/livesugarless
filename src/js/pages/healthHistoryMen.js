@@ -59,10 +59,6 @@ define((require) => {
                     type: 'number'
                 },
                 {
-                    name: 'birthdate',
-                    type: 'date'
-                },
-                {
                     name: 'birthplace',
                     type: 'textSpace'
                 },
@@ -175,7 +171,7 @@ define((require) => {
                     type: 'text'
                 },
                 {
-                    name:'homeCook',
+                    name: 'homeCook',
                     type: 'number'
                 },
                 {

@@ -24,6 +24,7 @@
         "passport-google-oauth": "~1.0.0",
         "express-validator": "~2.20.2",
         "util": "~0.10.3",
-        "html-pdf": "~2.0.1"
+        "html-pdf": "~2.0.1",
+        "handlebars": "~4.0.5"
     }
 }

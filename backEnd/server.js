@@ -17,6 +17,7 @@ app.all('*', function(req, res, next) {
 
 var contactMeModule = require('./emailForms/contactMe.js');
 var freeConsultModule = require('./emailForms/freeConsult.js');
+var healthHistoryModule = require('./emailForms/healthHistory.js');
 
 app.post('/contact-me', function(req, res) {
     contactMeModule.contactMe(req, res);
@@ -24,6 +25,10 @@ app.post('/contact-me', function(req, res) {
 
 app.post('/free-consultation', function(req, res) {
     freeConsultModule.freeConsultation(req, res);
+});
+
+app.post('/health-history-men', function(req, res) {
+    healthHistoryModule.healthHistoryMen(req, res);
 });
 
 var server = app.listen(8081, function() {
