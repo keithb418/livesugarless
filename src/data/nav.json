@@ -32,12 +32,8 @@
             "submenu": "true",
             "items": [
                 {
-                    "name": "Men's Health History",
-                    "route": "#/health-history-men"
-                },
-                {
-                    "name": "Women's Health History",
-                    "route": "#/health-history-women"
+                    "name": "Health History",
+                    "route": "#/health-history"
                 }
             ]
         },

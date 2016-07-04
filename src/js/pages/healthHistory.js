@@ -2,11 +2,11 @@ define((require) => {
     let angular = require('angular');
     let angularRoute = require('angularRoute');
     let FormHandler = require('common/formHandler');
-    let template = require('text!html/pages/healthHistoryMen.html');
+    let template = require('text!html/pages/healthHistory.html');
     let apiKeyJSON = require('text!data/api_key.json');
     let apiData = JSON.parse(apiKeyJSON);
 
-    class HealthHistoryMen extends FormHandler {
+    class HealthHistory extends FormHandler {
         constructor ($window, $http, $location, validateForm, showMessage) {
             super({
                 $window,
@@ -14,11 +14,11 @@ define((require) => {
                 $location,
                 validateForm,
                 showMessage
-            }, 'health-history-men-captcha');
+            }, 'health-history-captcha');
         }
         
         submit(form = {}) {
-            return super.submit(form,'http://localhost:8081/health-history-men', [
+            return super.submit(form,'http://localhost:8081/health-history', [
                 {
                     name: 'firstName',
                     type: 'textStrict',
@@ -198,20 +198,20 @@ define((require) => {
         }
     }
 
-    angular.module('healthHistoryMen', ['ngRoute'])
+    angular.module('healthHistory', ['ngRoute'])
         .config(['$routeProvider', ($routeProvider) => {
-            $routeProvider.when('/health-history-men', {
+            $routeProvider.when('/health-history', {
                 template: template,
-                controller: 'healthHistoryMenCtrl'
+                controller: 'healthHistory'
             });
         }])
-        .service('healthHistoryMen', HealthHistoryMen)
+        .service('healthHistory', HealthHistory)
         .controller('collapseCtrl', ($scope) => {
             $scope.isCollapsed = true;
         })
-        .controller('healthHistoryMenCtrl', ($scope, $timeout, healthHistoryMen) => {
+        .controller('healthHistoryCtrl', ($scope, $timeout, healthHistory) => {
             angular.extend($scope, {
-                captchaId: healthHistoryMen.captchaId,
+                captchaId: healthHistory.captchaId,
                 datepickerOpen: false,
                 dateOptions: {
                     minDate: new Date(1900, 1, 1),
@@ -222,16 +222,16 @@ define((require) => {
                 restrictTo: (maxlength, field) => {
                     let value = $scope.health[field];
 
-                    $scope.health[field] = healthHistoryMen.restrictTo(maxlength, value);
+                    $scope.health[field] = healthHistory.restrictTo(maxlength, value);
                 },
                 submitted: false,
                 submit: () => {
-                    $scope.errors = healthHistoryMen.submit($scope.health);
+                    $scope.errors = healthHistory.submit($scope.health);
                 }
             });
 
             $timeout(() => {
-                healthHistoryMen.showCaptcha();
+                healthHistory.showCaptcha();
             }, 0, false);
         });
 });

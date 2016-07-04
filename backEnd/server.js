@@ -27,7 +27,7 @@ app.post('/free-consultation', function(req, res) {
     freeConsultModule.freeConsultation(req, res);
 });
 
-app.post('/health-history-men', function(req, res) {
+app.post('/health-history', function(req, res) {
     healthHistoryModule.healthHistoryMen(req, res);
 });
 

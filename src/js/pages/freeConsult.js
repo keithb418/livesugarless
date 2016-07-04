@@ -54,13 +54,7 @@ define((require) => {
                 action1: {
                     text: "Men's Health History",
                     action: () => {
-                        this.$location.path('/health-history-men');
-                    }
-                },
-                action2: {
-                    text: "Women's Health History",
-                    action: () => {
-                        this.$location.path('/health-history-women');
+                        this.$location.path('/health-history');
                     }
                 }
             });

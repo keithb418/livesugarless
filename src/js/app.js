@@ -15,8 +15,7 @@ define([
     'pages/about',
     'pages/home',
     'pages/freeConsult',
-    'pages/healthHistoryMen',
-    'pages/healthHistoryWomen'
+    'pages/healthHistory'
 ],
 ($, angular) => {
     angular.module('takeChargeHealth', 
@@ -31,8 +30,7 @@ define([
             'home',
             'about',
             'consult',
-            'healthHistoryMen',
-            'healthHistoryWomen',
+            'healthHistory',
             'contact',
             'message',
             'validation',

@@ -4,7 +4,7 @@ var pdf = require('html-pdf');
 var handlebars = require('handlebars');
 var fs = require('fs');
 
-var healthHistoryMenTmplt = fs.readFileSync('./backEnd/emailTemplates/healthHistoryMen.html', 'utf-8');
+var healthHistoryMenTmplt = fs.readFileSync('./backEnd/emailTemplates/healthHistory.html', 'utf-8');
 
 var sendHealthHistory = function (form, template, res) {
     var name = form.firstName + " " + form.lastName;
@@ -28,7 +28,7 @@ var sendHealthHistory = function (form, template, res) {
 }
 
 module.exports = {
-    healthHistoryMen: function (req, res) {
-        sendHealthHistory(req.body, healthHistoryMenTmplt, res);
+    healthHistory: function (req, res) {
+        sendHealthHistory(req.body, healthHistoryTmplt, res);
     }
 };
