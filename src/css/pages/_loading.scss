@@ -1,0 +1,38 @@
+.loading {
+    .lsl-logo {
+        @include flex;
+        
+        align-items: center;
+        color: $secondary;
+        font-size: 150px;
+        height: 200px;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+        width: 200px;
+        
+        &.lsl-logo:before {
+            @include ellipse(75px, 56px);
+            
+            background-color: $highlight;
+            -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+            -moz-box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+            height: 112px;
+            top: 45px;
+            width: 150px;
+        }
+    }
+
+    p {
+        color: $dark-primary;
+        font-family: 'Pacifico', cursive;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .progress {
+        margin: 0 20px;
+    }
+}

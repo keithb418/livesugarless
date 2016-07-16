@@ -10,13 +10,12 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2" />
         <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     </head>
-    <body ng-cloak>
-        <header header-view resize></header>
-        <div id="content" ng-view class="content"></div>
-        <footer footer-view></footer>
-        <div class="ajax-spinner hidden">
-            <div class="ajax-spinner-body" aria-label="Loading, please wait">
-                <span class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+    <body ng-cloak layout>
+        <div class="loading">
+            <div class="lsl-logo" aria-hidden="true"></div>
+            <p>Loading...</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
         </div>
     </body>

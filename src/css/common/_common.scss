@@ -4,6 +4,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    background-color: $light-grey;
+}
+
 button {
     @include border-radius(10px);
     @include box-sizing(border-box);
