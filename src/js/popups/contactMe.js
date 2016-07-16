@@ -15,7 +15,7 @@ define((require) => {
                 $uibModalStack,
                 validateForm,
                 showMessage
-            }, 'free-consult-captcha');
+            }, 'free-consult-captcha', 'form.contact-me-form');
 
             angular.extend(this, {
                 openContact: this.openContact.bind(this)

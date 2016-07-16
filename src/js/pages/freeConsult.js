@@ -14,7 +14,7 @@ define((require) => {
                 $location,
                 validateForm,
                 showMessage
-            }, 'free-consult-captcha');
+            }, 'free-consult-captcha', 'form.free-consult');
         }
 
         submit(form = {}) {
@@ -78,6 +78,11 @@ define((require) => {
                 consult: {},
                 submit: () => {
                     $scope.errors = freeConsult.submit($scope.consult);
+                },
+                clickArea: ($event) => {
+                    $timeout(() => {
+                        freeConsult.clickArea($event);
+                    });
                 }
             });
             

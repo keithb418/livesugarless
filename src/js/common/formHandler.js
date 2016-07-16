@@ -3,9 +3,10 @@ define((require) => {
     let apiData = JSON.parse(apiKeyJSON);
 
     return class {
-        constructor(dependencies, captchaId) {
+        constructor(dependencies, captchaId, formEl) {
             angular.extend(this, dependencies, {
                 captchaId,
+                formEl,
                 showCaptcha: this.showCaptcha.bind(this),
                 submit: this.submit.bind(this)
             });
@@ -34,7 +35,14 @@ define((require) => {
         }
 
         disableAllInputs() {
-            angular.element('input, button, textarea').attr('disabled', 'disabled');
+            angular.element(`${this.formEl} input, ${this.formEl} button, ${this.formEl} textarea`).attr('disabled', 'disabled');
+        }
+
+        clickArea($event) {
+            let $el = angular.element($event.currentTarget)
+
+            $el.next().trigger('click');
+            $el.toggleClass('fa fa-check');
         }
 
         submit(form = {}, url = '', formConfig, messageOpts) {

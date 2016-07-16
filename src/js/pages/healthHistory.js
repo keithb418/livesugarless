@@ -14,7 +14,7 @@ define((require) => {
                 $location,
                 validateForm,
                 showMessage
-            }, 'health-history-captcha');
+            }, 'health-history-captcha', 'form.health-history');
         }
         
         submit(form = {}) {
@@ -227,6 +227,11 @@ define((require) => {
                 submitted: false,
                 submit: () => {
                     $scope.errors = healthHistory.submit($scope.health);
+                },
+                clickArea: ($event) => {
+                    $timeout(() => {
+                        healthHistory.clickArea($event);
+                    });
                 }
             });
 

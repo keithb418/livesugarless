@@ -13,7 +13,7 @@
 </div>
 <p class="form-required">* Required Fields</p>
 <p class="form-error" ng-if="errors"><span class="fa fa-warning" aria-hidden="true"></span> Please correct the errors below:</p>
-<form>
+<form class="free-consult">
     <div class="form-group first-name">
         <label for="first-name">* First Name</label>
         <p class="form-error" ng-if="errors.firstName"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.firstName}}</p>
@@ -45,42 +45,36 @@
     <fieldset class="availability">
         <legend>* Your Availability <span class="sr-only">required field</span></legend>
         <p class="form-error" ng-if="errors.availability"><span class="fa fa-warning" aria-hidden="true"></span> {{errors.availability}}</p>
-        <div class="col-xs-2 time-of-day">
+        <div class="col-xs-3 time-of-day">
             <p aria-hidden="true">9am-12pm</p>
             <p aria-hidden="true">1pm-5pm</p>
-        </div>
-        <div class="col-xs-4">
-            <p aria-hidden="true" class="day">Wednesday</p>
-            <label for="wed-am" class="sr-only">Wednesday 9am-12pm</label>
-            <div class="click-area" ng-click="clickCheckbox($event)">
-                <input id="wed-am" type="checkbox" name="availability" ng-model="consult.availability.wedAM" />
-            </div>
-            <label for="wed-am" class="sr-only">Wednesday 1pm-5pm</label>
-            <div class="click-area" ng-click="clickCheckbox($event)">
-                <input id="wed-pm" type="checkbox" name="availability" ng-model="consult.availability.wedPM" />
-            </div>
         </div>
         <div class="col-xs-3">
             <p aria-hidden="true" class="day">Thursday</p>
             <label for="thurs-am" class="sr-only">Thursday 9am-12pm</label>
-            <div class="click-area" ng-click="clickCheckbox($event)">
-                <input id="thurs-am" type="checkbox" name="availability" ng-model="consult.availability.thursAM" />
-            </div>
+            <div class="form-control click-area" aria-hidden="true" ng-click="clickArea($event)"></div>
+            <input id="thurs-am" class="sr-only" type="checkbox" name="availability" ng-model="consult.availability.thursAM" />
             <label for="thurs-pm" class="sr-only">Thursday 1pm-5pm</label>
-            <div class="click-area" ng-click="clickCheckbox($event)">
-                <input id="thurs-pm" type="checkbox" name="availability" ng-model="consult.availability.thursPM" />
-            </div>
+            <div class="form-control click-area" aria-hidden="true" ng-click="clickArea($event)"></div>
+            <input id="thurs-pm" class="sr-only" type="checkbox" name="availability" ng-model="consult.availability.thursPM" />
         </div>
         <div class="col-xs-3">
             <p aria-hidden="true" class="day">Friday</p>
             <label for="fri-am" class="sr-only">Friday 9am-12pm</label>
-            <div class="click-area" ng-click="clickCheckbox($event)">
-                <input id="fri-am" type="checkbox" name="availability" ng-model="consult.availability.friAM" />
-            </div>
+            <div class="form-control click-area" aria-hidden="true" ng-click="clickArea($event)"></div>
+            <input id="fri-am" class="sr-only" type="checkbox" name="availability" ng-model="consult.availability.friAM" />
             <label for="fri-pm" class="sr-only">Friday 1pm-5pm</label>
-            <div class="click-area" ng-click="clickCheckbox($event)">
-                <input id="fri-pm" type="checkbox" name="availability" ng-model="consult.availability.friPM" />
-            </div>
+            <div class="form-control click-area" aria-hidden="true" ng-click="clickArea($event)"></div>
+            <input id="fri-pm" class="sr-only" type="checkbox" name="availability" ng-model="consult.availability.friPM" />
+        </div>
+        <div class="col-xs-3">
+            <p aria-hidden="true" class="day">Saturday</p>
+            <label for="sat-am" class="sr-only">Saturday 9am-12pm</label>
+            <div class="form-control click-area" aria-hidden="true" ng-click="clickArea($event)"></div>
+            <input id="sat-am" class="sr-only" type="checkbox" name="availability" ng-model="consult.availability.satAM" />
+            <label for="sat-pm" class="sr-only">Saturday 1pm-5pm</label>
+            <div class="form-control click-area" aria-hidden="true" ng-click="clickArea($event)"></div>
+            <input id="sat-pm" class="sr-only" type="checkbox" name="availability" ng-model="consult.availability.satPM" />
         </div>
     </fieldset>
     <div class="form-group">

@@ -8,7 +8,15 @@ body {
     background-color: $light-grey;
 }
 
-button {
+.lsl-btn {
+    display: inline-block;
+
+    &:visited {
+        color: #fff;
+    }
+}
+
+button, .lsl-btn {
     @include border-radius(10px);
     @include box-sizing(border-box);
     
@@ -126,30 +134,70 @@ a {
     @include flex;
     
     align-items: center;
-    background-color: $highlight;
+    background-color: transparent;
     border: 0 none;
-    border-top: 1px solid $primary;
-    color: $primary;
+    border-bottom: 2px solid $primary;
+    border-top: 2px solid $primary;
+    color: $secondary;
     font-size: 16px;
     text-align: left;
     width: 100%;
+
+    .fa {
+        font-size: 20px;
+    }
     
     &:hover, &:active, &:focus {
-        background-color: $highlight;
+        background-color: transparent;
         border: 0 none;
-        border-top: 1px solid $primary;
+        border-bottom: 2px solid $primary;
+        border-top: 2px solid $primary;
         color: $primary;
         
         &:active {
-            background-color: $highlight;
+            background-color: transparent;
             border: 0 none;
-            border-top: 1px solid $primary;
+            border-bottom: 2px solid $primary;
+            border-top: 2px solid $primary;
+            color: $primary;
+
+            &:focus {
+                background-color: transparent;
+                border: 0 none;
+                border-bottom: 2px solid $primary;
+                border-top: 2px solid $primary;
+                color: $primary;
+            }
+        }
+
+        &:focus {
+            background-color: transparent;
+            border: 0 none;
+            border-bottom: 2px solid $primary;
+            border-top: 2px solid $primary;
+            color: $primary;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border: 0 none;
+            border-bottom: 2px solid $primary;
+            border-top: 2px solid $primary;
             color: $primary;
         }
     }
     
     & + .collapsible {
-        border-top: 1px solid $primary;
+        @include border-radius(0 0 5px 5px); 
+
+        background-color: $light-grey;
+        border: 2px solid $watermark;
+        border-top: 0;
+
+        p {
+            margin: 0;
+            padding: 10px;
+        }
     }
 }
 
