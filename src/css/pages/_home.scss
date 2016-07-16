@@ -14,7 +14,7 @@
     
     h3 {
         background-color: transparent;
-        color: $primary;
+        color: $dark-primary;
         font-size: 20px;
         font-weight: bold;
         margin: 0;
@@ -131,7 +131,7 @@
         @include flex;
         
         background-color: transparent;
-        color: $primary;
+        color: $secondary;
         font-size: 15px;
         font-weight: bold;
         padding: 10px;
@@ -144,7 +144,7 @@
         }
         
         &:hover {
-            color: $secondary;
+            color: $primary;
         }
     }
     
@@ -152,19 +152,18 @@
         @include flex;
         
         align-items: center;
-        color: $watermark;
+        color: $secondary;
         font-size: 150px;
         height: 200px;
         justify-content: center;
-        opacity: 0.5;
         position: relative;
         text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
         width: 200px;
         
-        &.tch-logo:before {
+        &.lsl-logo:before {
             @include ellipse(75px, 56px);
             
-            background-color: #fff;
+            background-color: $highlight;
             -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.4);
             -moz-box-shadow: 0 2px 0 rgba(0,0,0,0.4);
             box-shadow: 0 2px 0 rgba(0,0,0,0.4);

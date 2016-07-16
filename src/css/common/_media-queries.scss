@@ -1,14 +1,15 @@
 @media (max-width: 399px) {
     header {
+        .main-header {
+            border-bottom: 2px solid $dark-primary;
+        }
+
         h1 {
             padding-left: 60px;
-            
-            .tch-title {
-                font-size: 20px;
-            }
-            
-            .tch-logo {
-                margin-right: 5px;
+            width: 280px;
+
+            .lsl-title {
+                font-size: 25px;
             }
         }
     }

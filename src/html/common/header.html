@@ -1,19 +1,18 @@
-<h1>
-    <a href="#/" title="Go to the Home Page" ng-click="closeMenu()">
-        <span class="tch-logo" aria-hidden="true"></span>
-        <span class="tch-text">
-            <span class="block tch-title">Take Charge Health</span>
-            <!--<span class="block tch-tagline">Integrative Nutrition Health Coach</span>-->
-        <span>
+<div class="main-header">
+    <a href="#/" class="go-home" title="Go to the Home Page" ng-click="closeMenu()">
+        <h1>
+            <span class="lsl-logo" aria-hidden="true"></span>
+            <span class="lsl-title">Live Sugarless</span>
+        </h1>
     </a>
-</h1>
+</div>
 <div ng-if="smallScreen">
     <button id="menu-btn" class="menu-btn" ng-class="{open: menuOpen}" ng-click="menuOpen = !menuOpen" title="Open Menu">
         <span class="fa fa-bars" aria-hidden="true"></span> Menu
     </button>
     <div class="close-menu" ng-class="{open: menuOpen}" ng-click="closeMenu()" ng-style="updateHeight(60)"></div>
     <div id="menu" class="menu" ng-class="{open: menuOpen}" ng-style="updateHeight(60)">
-        <h2>Menu</h2>
+        <h2 class="sr-only">Menu</h2>
         <ul>
             <li ng-controller="collapseCtrl" ng-repeat="item in items" ng-switch on="item.submenu">
                 <div ng-switch-default>

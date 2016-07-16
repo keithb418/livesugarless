@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "take-charge-health";
-  src:url("../assets/fonts/takeChargeHealth/take-charge-health.eot");
-  src:url("../assets/fonts/takeChargeHealth/take-charge-health.eot?#iefix") format("embedded-opentype"),
-    url("../assets/fonts/takeChargeHealth/take-charge-health.woff") format("woff"),
-    url("../assets/fonts/takeChargeHealth/take-charge-health.ttf") format("truetype"),
-    url("../assets/fonts/takeChargeHealth/take-charge-health.svg#take-charge-health") format("svg");
+  font-family: "live-sugarless";
+  src:url("../assets/fonts/liveSugarless/live-sugarless.eot");
+  src:url("../assets/fonts/liveSugarless/live-sugarless.eot?#iefix") format("embedded-opentype"),
+    url("../assets/fonts/liveSugarless/live-sugarless.woff") format("woff"),
+    url("../assets/fonts/liveSugarless/live-sugarless.ttf") format("truetype"),
+    url("../assets/fonts/liveSugarless/live-sugarless.svg#live-sugarless") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "take-charge-health" !important;
+  font-family: "live-sugarless" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -25,9 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[class^="tch-"]:after,
-[class*=" tch-"]:after {
-  font-family: "take-charge-health" !important;
+[class^="lsl-"]:after,
+[class*=" lsl-"]:after {
+  font-family: "live-sugarless" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -38,12 +38,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.tch-logo:after {
+.lsl-logo:after {
   content: "\23";
   z-index: 1;
 }
 
-.tch-logo:before {
+.lsl-logo:before {
   content: " ";
   display: block;
   position: absolute;

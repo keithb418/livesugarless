@@ -70,10 +70,10 @@ module.exports = function (grunt) {
         },
         shell: {
             delete: {
-                command: "rm -rf C:/Users/Terz/apache-tomcat-9.0.0.M1/webapps/takechargehealth.com"
+                command: "rm -rf C:/Users/Terz/apache-tomcat-9.0.0.M1/webapps/livesugarless.com"
             },
             copy: {
-                command: "cp build/. C:/Users/Terz/apache-tomcat-9.0.0.M1/webapps/takechargehealth.com -R"
+                command: "cp build/. C:/Users/Terz/apache-tomcat-9.0.0.M1/webapps/livesugarless.com -R"
             }
         },
         sass: {

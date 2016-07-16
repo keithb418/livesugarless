@@ -25,65 +25,51 @@ header {
             width: 34px;
         }
         
-        &.open {
-            background-color: $secondary;
-            
-            &:hover {
-                background-color: $highlight;
-            }
-            
-            &:active {
-                background-color: $secondary;
-                border-color: $secondary;
-                color: #fff;
-            }
-        }
-        
         &:active {
             border: 3px solid #fff;
+
+            &:focus, &:hover {
+                border: 3px solid #fff;
+            }
         }
+    }
+
+    .main-header {
+        background-color: $primary;
+        width: 100%;
     }
     
     h1 {
         @include align-items(center);
         @include flex;
         
-        background-color: $primary;
-        border-bottom: 2px solid $dark-primary;
-        font-weight: bold;
         height: 60px;
         margin: 0;
         padding: 10px;
+        width: 260px;
         z-index: 10;
         
-        .tch-text {
+        .lsl-title {
             display: inline-block;
+            font-family: 'Pacifico', cursive;
+            font-size: 30px;
         }
         
-        .tch-title {
-            font-size: 25px;
-        }
-        
-        .tch-tagline {
-            font-size: 13px;
-        }
-        
-        .tch-logo {
+        .lsl-logo {
             display: inline-block;
-            font-size: 40px;
-            height: 40px;
+            font-size: 50px;
+            height: 50px;
             margin-right: 10px;
             position: relative;
-            vertical-align: top;
-            width: 40px;
+            width: 50px;
             
             &:before {
-                @include ellipse(20px, 15px);
+                @include ellipse(25px, 18px);
                 
                 background-color: $highlight;
-                height: 30px;
-                top: 5px;
-                width: 40px;
+                height: 38px;
+                top: 7px;
+                width: 50px;
             }
             
             &:after {
@@ -110,6 +96,7 @@ header {
         @include transition(transform 0.5s);
         
         background-color: $grey;
+        border-top: 2px solid $dark-grey;
         color: #fff;
         font-weight: bold;
         overflow-x: hidden;
@@ -124,7 +111,8 @@ header {
         }
         
         h2 {
-            background-color: $dark-grey;
+            background-color: $dark-primary;
+            border-bottom: 2px solid $dark-grey;
             font-size: 20px;
             margin: 0;
             padding: 10px;
@@ -223,11 +211,13 @@ header {
     
     .navbar {
         @include border-radius(0);
+        @include box-sizing(border-box);
         
-        background-color: $dark-grey;
+        background-color: $grey;
         border: 0 none;
+        border-top: 2px solid $dark-primary;
         color: #fff;
-        height: 40px;
+        height: 42px;
         margin: 0;
         min-height: 0;
         padding: 0;
@@ -275,6 +265,7 @@ header {
             
             background-color: $grey;
             border: 0 none;
+            border-top: 2px solid $dark-grey;
             margin: 0;
             padding: 0;
             

@@ -42,6 +42,6 @@ requirejs.config({
 requirejs(['app'], () => {
     angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(() => {
-        angular.bootstrap(document, ['takeChargeHealth']);
+        angular.bootstrap(document, ['liveSugarless']);
     });
 });

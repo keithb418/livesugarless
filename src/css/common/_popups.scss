@@ -4,6 +4,7 @@
 
 .modal-header {
     background-color: $primary;
+    border-bottom: 2px solid $dark-primary;
     color: #fff;
     padding: 5px 0 5px 15px;
     
@@ -81,7 +82,11 @@
 .modal-footer {
     .btn-cancel {
         background-color: $highlight;
-        color: $primary;
+        color: $secondary;
+
+        &:hover {
+            color: $primary;
+        }
     }
 }
 

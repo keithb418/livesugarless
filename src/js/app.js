@@ -18,7 +18,7 @@ define([
     'pages/healthHistory'
 ],
 ($, angular) => {
-    angular.module('takeChargeHealth', 
+    angular.module('liveSugarless', 
         [
             'ngRoute',
             'ngAnimate',

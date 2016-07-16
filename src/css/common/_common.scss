@@ -4,17 +4,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    background-color: $dark-grey;
-    color: #fff;
-}
-
 button {
     @include border-radius(10px);
     @include box-sizing(border-box);
     
-    background-color: $primary;
-    border: 3px solid $primary;
+    background-color: $secondary;
+    border: 3px solid $secondary;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -23,51 +18,51 @@ button {
     padding: 10px;
     
     &:focus {
-        background-color: $primary;
+        background-color: $secondary;
         color: #fff;
         
         &:active {
-            background-color: $secondary;
-            border: 3px solid $secondary;
-            color: #fff;
+            background-color: $highlight;
+            border: 3px solid $primary;
+            color: $primary;
             
             &:hover {
-                border: 3px solid $secondary;
-                background-color: $secondary;
-                color: #fff;
+                background-color: $highlight;
+                border: 3px solid $primary;
+                color: $primary;
             }
         }
         
         &:hover {
             background-color: $highlight;
-            color: $primary;
+            color: $secondary;
         }
     }
     
     &:active {
-        background-color: $secondary;
-        border: 3px solid $secondary;
-        color: #fff;
+        background-color: $highlight;
+        border: 3px solid $primary;
+        color: $primary;
         
         &:hover {
-            border: 3px solid $secondary;
-            background-color: $secondary;
-            color: #fff;
+            background-color: $highlight;
+            border: 3px solid $primary;
+            color: $primary;
         }
     }
     
     &:hover {
         background-color: $highlight;
-        color: $primary;
+        color: $secondary;
     }
 }
 
-.tch-text {
+.lsl-text {
     vertical-align: middle;
 }
 
 footer {
-    background-color: $dark-grey;
+    background-color: $grey;
     padding: 10px;
     position: relative;
     z-index: 10;
