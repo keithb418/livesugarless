@@ -196,22 +196,22 @@ define((require) => {
                 message: 'Thank you for filling out the Health History form!  I look forward to meeting with you!'
             });
         }
-    }
+    };
 
     angular.module('healthHistory', ['ngRoute'])
         .config(['$routeProvider', ($routeProvider) => {
             $routeProvider.when('/health-history', {
                 template: template,
-                controller: 'healthHistory'
+                controller: 'healthHistoryCtrl'
             });
         }])
-        .service('healthHistory', HealthHistory)
+        .service('healthHistoryForm', HealthHistory)
         .controller('collapseCtrl', ($scope) => {
             $scope.isCollapsed = true;
         })
-        .controller('healthHistoryCtrl', ($scope, $timeout, healthHistory) => {
+        .controller('healthHistoryCtrl', ($scope, $timeout, healthHistoryForm) => {
             angular.extend($scope, {
-                captchaId: healthHistory.captchaId,
+                captchaId: healthHistoryForm.captchaId,
                 datepickerOpen: false,
                 dateOptions: {
                     minDate: new Date(1900, 1, 1),
@@ -222,21 +222,21 @@ define((require) => {
                 restrictTo: (maxlength, field) => {
                     let value = $scope.health[field];
 
-                    $scope.health[field] = healthHistory.restrictTo(maxlength, value);
+                    $scope.health[field] = healthHistoryForm.restrictTo(maxlength, value);
                 },
                 submitted: false,
                 submit: () => {
-                    $scope.errors = healthHistory.submit($scope.health);
+                    $scope.errors = healthHistoryForm.submit($scope.health);
                 },
                 clickArea: ($event) => {
                     $timeout(() => {
-                        healthHistory.clickArea($event);
+                        healthHistoryForm.clickArea($event);
                     });
                 }
             });
 
             $timeout(() => {
-                healthHistory.showCaptcha();
+                healthHistoryForm.showCaptcha();
             }, 0, false);
         });
 });
